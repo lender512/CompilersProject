@@ -5,28 +5,25 @@ entero mod(entero a, entero b){
     mientras (a >= b){
         a = a - b;
     }
-    retornar a;
+    retorno a;
 }
 
 entero mcd(entero a, entero b){
     entero temporal;
-
     mientras (b != 0) {
         temporal = b;
         b = mod(a,b);
         a = temporal;
     }
-    retornar a;
+    retorno a;
 }
 
 entero main(sin_tipo) {
     entero a;
     entero b;
     entero resultado;
-
     a = input();
     b = input();
-    
     resultado = mcd(a,b);
-    retornar 0;
+    retorno 0;
 }

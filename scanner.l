@@ -12,40 +12,40 @@ LETRA [a-z]
 
 "/*".+"/*"
 
-"entero" return printf("TIPO_ENTERO\n");
-"retorno" return printf("RETORNO\n");
-"sin_tipo" return printf("TIPO_SIN_TIPO\n");
-"mientras" return printf("MIENTRAS\n");
-"si" return printf("SI\n");
-"sino" return printf("SINO\n");
-"main" return printf("MAIN\n");
+"entero"  printf("TIPO_ENTERO\t");
+"retorno"  printf("RETORNO\t");
+"sin_tipo"  printf("TIPO_SIN_TIPO\t");
+"mientras"  printf("MIENTRAS\t");
+"si"  printf("SI\t");
+"sino"  printf("SINO\t");
+"main"  printf("MAIN\t");
+{LETRA}+  printf("IDENTIFICADOR\t");
+{DIGITO}* printf("NUMERO\t");
 
-{LETRA}+  printf("IDENTIFICADOR\n");
-[+-]?{DIGITO}+\.{DIGITO}* printf("Digito\n");
+"<="  printf("RELOP\t");
+">="  printf("RELOP\t");
+"=="  printf("RELOP\t");
+"!="  printf("RELOP\t");
+">"  printf("RELOP\t");
+"<"  printf("RELOP\t");
 
-"<=" return printf("RELOP\n");
-">=" return printf("RELOP\n");
-"==" return printf("RELOP\n");
-"!=" return printf("RELOP\n");
-">" return printf("RELOP\n");
-"<" return printf("RELOP\n");
+","  printf("SEPARADOR_COM\t");
+";"  printf("SEPARADOR_PUN\t");
 
-";" return printf("SEPARADOR\n");
+"="  printf("ASSIGNACION\t");
 
-"=" return printf("ASSIGNACION\n");
+"+"  printf("ADDOP\t");
+"-"  printf("ADDOP\t");
 
-"+" return printf("ADDOP\n");
-"-" return printf("ADDOP\n");
+"*"  printf("MULOP\t");
+"/"  printf("MULOP\t");
 
-"*" return printf("MULOP\n");
-"/" return printf("MULOP\n");
+"("  printf("PARENTESIS_IZQ\t");
+")"  printf("PARENTESIS_DER\t");
+"["  printf("CORCHETE_IZQ\t");
+"]"  printf("CORCHETE_DER\t");
+"{"  printf("LLAVE_IZQ\t");
+"}"  printf("LLAVE_DER\t");
 
-"(" return printf("PARENTESIS_IZQ\n");
-")" return printf("PARENTESIS_DER\n");
-"[" return printf("CORCHETE_IZQ\n");
-"]" return printf("CORCHETE_DER\n");
-"{" return printf("LLAVE_IZQ\n");
-"}" return printf("LLAVE_DER\n");
-
-.|\n
+.|\t
 %%
