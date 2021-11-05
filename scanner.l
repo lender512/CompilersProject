@@ -10,7 +10,7 @@ DIGITO [0-9]
 LETRA [a-z]
 %%
 
-"/*".+"/*"
+"/*".+"*/" printf("COMENTARIO\t");
 
 "entero"  printf("TIPO_ENTERO\t");
 "retorno"  printf("RETORNO\t");
@@ -32,7 +32,7 @@ LETRA [a-z]
 ","  printf("SEPARADOR_COM\t");
 ";"  printf("SEPARADOR_PUN\t");
 
-"="  printf("ASSIGNACION\t");
+"="  printf("ASIGNACIÓN\t");
 
 "+"  printf("ADDOP\t");
 "-"  printf("ADDOP\t");

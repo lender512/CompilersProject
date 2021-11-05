@@ -27,3 +27,5 @@ entero main(sin_tipo) {
     resultado = mcd(a,b);
     retorno 0;
 }
+
+/* /* lala */

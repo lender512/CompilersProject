@@ -417,8 +417,8 @@ static const flex_int16_t yy_base[71] =
        77,   77,   77,   67,   61,   77,   57,   56,   55,   77,
        77,    0,   44,   13,   46,   44,   77,   77,   77,    0,
        54,   77,   77,   77,    0,   35,   41,   41,   32,   36,
-       49,   37,   33,   32,   30,   15,   28,   27,    0,   24,
-       25,   22,    0,   40,   24,   21,   23,   24,    0,   26,
+       53,   37,   33,   32,   30,   15,   28,   27,    0,   24,
+       25,   22,    0,   44,   24,   21,   23,   24,    0,   26,
        19,   16,   11,    0,   12,    0,   77,   77,   34,   41
     } ;
 
@@ -438,7 +438,7 @@ static const flex_int16_t yy_nxt[110] =
         4,    5,    6,    7,    8,    9,   10,   11,   12,   13,
        14,   15,   16,   17,   18,   19,   20,   21,    4,   22,
        22,   23,   22,   24,   22,   22,   22,   25,   26,   22,
-       27,   28,   37,   52,   54,   38,   35,   67,   47,   66,
+       27,   28,   37,   52,   47,   38,   35,   67,   54,   66,
        53,   41,   65,   41,   64,   63,   62,   61,   60,   59,
        47,   58,   57,   56,   55,   51,   50,   49,   48,   47,
        46,   45,   44,   43,   42,   31,   40,   39,   36,   34,
@@ -766,7 +766,7 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 13 "scanner.l"
-
+printf("COMENTARIO\t");
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
@@ -856,7 +856,7 @@ printf("SEPARADOR_PUN\t");
 case 19:
 YY_RULE_SETUP
 #line 35 "scanner.l"
-printf("ASSIGNACION\t");
+printf("ASIGNACIÓN\t");
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
@@ -1924,4 +1924,5 @@ void yyfree (void * ptr )
 #define YYTABLES_NAME "yytables"
 
 #line 51 "scanner.l"
+
 
