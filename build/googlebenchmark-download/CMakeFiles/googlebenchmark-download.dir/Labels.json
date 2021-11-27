@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-download/CMakeFiles/googlebenchmark-download"
+		},
+		{
+			"file" : "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-download/CMakeFiles/googlebenchmark-download.rule"
+		},
+		{
+			"file" : "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-download/CMakeFiles/googlebenchmark-download-complete.rule"
+		},
+		{
+			"file" : "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-install.rule"
+		},
+		{
+			"file" : "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-mkdir.rule"
+		},
+		{
+			"file" : "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-download.rule"
+		},
+		{
+			"file" : "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-patch.rule"
+		},
+		{
+			"file" : "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-configure.rule"
+		},
+		{
+			"file" : "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-build.rule"
+		},
+		{
+			"file" : "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-test.rule"
+		},
+		{
+			"file" : "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-skip-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googlebenchmark-download"
+		],
+		"name" : "googlebenchmark-download"
+	}
+}

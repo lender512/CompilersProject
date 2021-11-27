@@ -1,0 +1,162 @@
+Performing C++ SOURCE FILE Test HAVE_CXX_FLAG_WSUGGEST_OVERRIDE failed with the following output:
+Change Dir: /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_37c55/fast && /usr/bin/make -f CMakeFiles/cmTC_37c55.dir/build.make CMakeFiles/cmTC_37c55.dir/build
+make[1]: Entering directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_37c55.dir/src.cxx.o
+/bin/clang++-10    -std=c++11  -Wall  -Wextra  -Wshadow -DHAVE_CXX_FLAG_WSUGGEST_OVERRIDE  -Wsuggest-override   -Wsuggest-override -o CMakeFiles/cmTC_37c55.dir/src.cxx.o -c /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp/src.cxx
+warning: unknown warning option '-Wsuggest-override'; did you mean '-Wshift-overflow'? [-Wunknown-warning-option]
+warning: unknown warning option '-Wsuggest-override'; did you mean '-Wshift-overflow'? [-Wunknown-warning-option]
+2 warnings generated.
+Linking CXX executable cmTC_37c55
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_37c55.dir/link.txt --verbose=1
+/bin/clang++-10    -std=c++11  -Wall  -Wextra  -Wshadow -DHAVE_CXX_FLAG_WSUGGEST_OVERRIDE  -Wsuggest-override    CMakeFiles/cmTC_37c55.dir/src.cxx.o  -o cmTC_37c55 
+make[1]: Leaving directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test HAVE_CXX_FLAG_WD654 failed with the following output:
+Change Dir: /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d63b3/fast && /usr/bin/make -f CMakeFiles/cmTC_d63b3.dir/build.make CMakeFiles/cmTC_d63b3.dir/build
+make[1]: Entering directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d63b3.dir/src.cxx.o
+/bin/clang++-10    -std=c++11  -Wall  -Wextra  -Wshadow  -pedantic  -pedantic-errors  -Wshorten-64-to-32  -fstrict-aliasing  -Wno-deprecated-declarations  -Wstrict-aliasing -DHAVE_CXX_FLAG_WD654  -wd654   -wd654 -o CMakeFiles/cmTC_d63b3.dir/src.cxx.o -c /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp/src.cxx
+clang: error: unknown argument: '-wd654'
+clang: error: unknown argument: '-wd654'
+make[1]: *** [CMakeFiles/cmTC_d63b3.dir/build.make:66: CMakeFiles/cmTC_d63b3.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_d63b3/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_11879/fast && /usr/bin/make -f CMakeFiles/cmTC_11879.dir/build.make CMakeFiles/cmTC_11879.dir/build
+make[1]: Entering directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_11879.dir/src.c.o
+/bin/clang-10   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_11879.dir/src.c.o   -c /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_11879
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_11879.dir/link.txt --verbose=1
+/bin/clang-10  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_11879.dir/src.c.o  -o cmTC_11879 
+/bin/ld: CMakeFiles/cmTC_11879.dir/src.c.o: in function `main':
+src.c:(.text+0x35): undefined reference to `pthread_create'
+/bin/ld: src.c:(.text+0x41): undefined reference to `pthread_detach'
+/bin/ld: src.c:(.text+0x53): undefined reference to `pthread_join'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [CMakeFiles/cmTC_11879.dir/build.make:87: cmTC_11879] Error 1
+make[1]: Leaving directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_11879/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Performing C++ SOURCE FILE Test HAVE_CXX_FLAG_WSHORTEN_64_TO_32 failed with the following output:
+Change Dir: /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9c007/fast && /usr/bin/make -f CMakeFiles/cmTC_9c007.dir/build.make CMakeFiles/cmTC_9c007.dir/build
+make[1]: Entering directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_9c007.dir/src.cxx.o
+/usr/bin/c++    -std=c++11  -Wall  -Wextra  -Wshadow  -Wsuggest-override  -pedantic  -pedantic-errors -DHAVE_CXX_FLAG_WSHORTEN_64_TO_32  -Wshorten-64-to-32   -Wshorten-64-to-32 -o CMakeFiles/cmTC_9c007.dir/src.cxx.o -c /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wshorten-64-to-32'
+c++: error: unrecognized command line option '-Wshorten-64-to-32'
+make[1]: *** [CMakeFiles/cmTC_9c007.dir/build.make:66: CMakeFiles/cmTC_9c007.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_9c007/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test HAVE_CXX_FLAG_WD654 failed with the following output:
+Change Dir: /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_07e1f/fast && /usr/bin/make -f CMakeFiles/cmTC_07e1f.dir/build.make CMakeFiles/cmTC_07e1f.dir/build
+make[1]: Entering directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_07e1f.dir/src.cxx.o
+/usr/bin/c++    -std=c++11  -Wall  -Wextra  -Wshadow  -Wsuggest-override  -pedantic  -pedantic-errors  -fstrict-aliasing  -Wno-deprecated-declarations  -Wstrict-aliasing -DHAVE_CXX_FLAG_WD654  -wd654   -wd654 -o CMakeFiles/cmTC_07e1f.dir/src.cxx.o -c /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-wd654'
+c++: error: unrecognized command line option '-wd654'
+make[1]: *** [CMakeFiles/cmTC_07e1f.dir/build.make:66: CMakeFiles/cmTC_07e1f.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_07e1f/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test HAVE_CXX_FLAG_WTHREAD_SAFETY failed with the following output:
+Change Dir: /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dae16/fast && /usr/bin/make -f CMakeFiles/cmTC_dae16.dir/build.make CMakeFiles/cmTC_dae16.dir/build
+make[1]: Entering directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_dae16.dir/src.cxx.o
+/usr/bin/c++    -std=c++11  -Wall  -Wextra  -Wshadow  -Wsuggest-override  -pedantic  -pedantic-errors  -fstrict-aliasing  -Wno-deprecated-declarations  -Wstrict-aliasing -DHAVE_CXX_FLAG_WTHREAD_SAFETY  -Wthread-safety   -Wthread-safety -o CMakeFiles/cmTC_dae16.dir/src.cxx.o -c /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wthread-safety'
+c++: error: unrecognized command line option '-Wthread-safety'
+make[1]: *** [CMakeFiles/cmTC_dae16.dir/build.make:66: CMakeFiles/cmTC_dae16.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_dae16/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_82717/fast && /usr/bin/make -f CMakeFiles/cmTC_82717.dir/build.make CMakeFiles/cmTC_82717.dir/build
+make[1]: Entering directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_82717.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_82717.dir/src.c.o   -c /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_82717
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_82717.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_82717.dir/src.c.o  -o cmTC_82717 
+/usr/bin/ld: CMakeFiles/cmTC_82717.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_82717.dir/build.make:87: cmTC_82717] Error 1
+make[1]: Leaving directory '/home/luis/repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_82717/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+

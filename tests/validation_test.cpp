@@ -20,10 +20,13 @@ TEST_P(ParamTest, basicTest) {
   EXPECT_EQ(result, GetParam().second);
 }
 
+// INSTANTIATE_TEST_SUITE_P(SimpleTest, ParamTest,
+//                          testing::Values(std::make_pair("entero mod(entero a, entero b);", 0),
+//                                         std::make_pair("entero mod(entero a, entero b);", 0)));
+
 INSTANTIATE_TEST_SUITE_P(SimpleTest, ParamTest,
-                         testing::Values(std::make_pair("1+2+3", 6),
-                                         std::make_pair("4*(2+3)", 20),
-                                         std::make_pair("1*2*3", 6)));
+                         testing::Values(std::make_pair("sin_tipo hola ( sin_tipo ) { retorno 0; }", 0))
+                         );
 
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);
