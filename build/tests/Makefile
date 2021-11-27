@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/luis/repos/Compilers/CompilersProject
+CMAKE_SOURCE_DIR = /home/luis/Repos/Compilers/CompilersProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/luis/repos/Compilers/CompilersProject/build
+CMAKE_BINARY_DIR = /home/luis/Repos/Compilers/CompilersProject/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/luis/repos/Compilers/CompilersProject/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles /home/luis/repos/Compilers/CompilersProject/build/tests/CMakeFiles/progress.marks
-	cd /home/luis/repos/Compilers/CompilersProject/build && $(MAKE) -f CMakeFiles/Makefile2 tests/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/luis/repos/Compilers/CompilersProject/build/CMakeFiles 0
+	cd /home/luis/Repos/Compilers/CompilersProject/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles /home/luis/Repos/Compilers/CompilersProject/build/tests/CMakeFiles/progress.marks
+	cd /home/luis/Repos/Compilers/CompilersProject/build && $(MAKE) -f CMakeFiles/Makefile2 tests/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/luis/repos/Compilers/CompilersProject/build && $(MAKE) -f CMakeFiles/Makefile2 tests/clean
+	cd /home/luis/Repos/Compilers/CompilersProject/build && $(MAKE) -f CMakeFiles/Makefile2 tests/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/luis/repos/Compilers/CompilersProject/build && $(MAKE) -f CMakeFiles/Makefile2 tests/preinstall
+	cd /home/luis/Repos/Compilers/CompilersProject/build && $(MAKE) -f CMakeFiles/Makefile2 tests/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/luis/repos/Compilers/CompilersProject/build && $(MAKE) -f CMakeFiles/Makefile2 tests/preinstall
+	cd /home/luis/Repos/Compilers/CompilersProject/build && $(MAKE) -f CMakeFiles/Makefile2 tests/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/luis/repos/Compilers/CompilersProject/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/luis/Repos/Compilers/CompilersProject/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 tests/CMakeFiles/validation_test.dir/rule:
-	cd /home/luis/repos/Compilers/CompilersProject/build && $(MAKE) -f CMakeFiles/Makefile2 tests/CMakeFiles/validation_test.dir/rule
+	cd /home/luis/Repos/Compilers/CompilersProject/build && $(MAKE) -f CMakeFiles/Makefile2 tests/CMakeFiles/validation_test.dir/rule
 .PHONY : tests/CMakeFiles/validation_test.dir/rule
 
 # Convenience name for target.
@@ -179,7 +179,7 @@ validation_test: tests/CMakeFiles/validation_test.dir/rule
 
 # fast build rule for target.
 validation_test/fast:
-	cd /home/luis/repos/Compilers/CompilersProject/build && $(MAKE) -f tests/CMakeFiles/validation_test.dir/build.make tests/CMakeFiles/validation_test.dir/build
+	cd /home/luis/Repos/Compilers/CompilersProject/build && $(MAKE) -f tests/CMakeFiles/validation_test.dir/build.make tests/CMakeFiles/validation_test.dir/build
 .PHONY : validation_test/fast
 
 validation_test.o: validation_test.cpp.o
@@ -188,7 +188,7 @@ validation_test.o: validation_test.cpp.o
 
 # target to build an object file
 validation_test.cpp.o:
-	cd /home/luis/repos/Compilers/CompilersProject/build && $(MAKE) -f tests/CMakeFiles/validation_test.dir/build.make tests/CMakeFiles/validation_test.dir/validation_test.cpp.o
+	cd /home/luis/Repos/Compilers/CompilersProject/build && $(MAKE) -f tests/CMakeFiles/validation_test.dir/build.make tests/CMakeFiles/validation_test.dir/validation_test.cpp.o
 .PHONY : validation_test.cpp.o
 
 validation_test.i: validation_test.cpp.i
@@ -197,7 +197,7 @@ validation_test.i: validation_test.cpp.i
 
 # target to preprocess a source file
 validation_test.cpp.i:
-	cd /home/luis/repos/Compilers/CompilersProject/build && $(MAKE) -f tests/CMakeFiles/validation_test.dir/build.make tests/CMakeFiles/validation_test.dir/validation_test.cpp.i
+	cd /home/luis/Repos/Compilers/CompilersProject/build && $(MAKE) -f tests/CMakeFiles/validation_test.dir/build.make tests/CMakeFiles/validation_test.dir/validation_test.cpp.i
 .PHONY : validation_test.cpp.i
 
 validation_test.s: validation_test.cpp.s
@@ -206,7 +206,7 @@ validation_test.s: validation_test.cpp.s
 
 # target to generate assembly for a file
 validation_test.cpp.s:
-	cd /home/luis/repos/Compilers/CompilersProject/build && $(MAKE) -f tests/CMakeFiles/validation_test.dir/build.make tests/CMakeFiles/validation_test.dir/validation_test.cpp.s
+	cd /home/luis/Repos/Compilers/CompilersProject/build && $(MAKE) -f tests/CMakeFiles/validation_test.dir/build.make tests/CMakeFiles/validation_test.dir/validation_test.cpp.s
 .PHONY : validation_test.cpp.s
 
 # Help Target
@@ -237,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/luis/repos/Compilers/CompilersProject/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/luis/Repos/Compilers/CompilersProject/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

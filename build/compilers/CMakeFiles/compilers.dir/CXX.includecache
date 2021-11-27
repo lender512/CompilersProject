@@ -12,7 +12,7 @@ FlexLexer.h
 parser.hpp
 ../compilers/parser.hpp
 
-/home/luis/repos/Compilers/CompilersProject/build/compilers/parser.hpp
+/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp
 cstdlib
 -
 iostream
@@ -26,7 +26,7 @@ vector
 cassert
 -
 
-/home/luis/repos/Compilers/CompilersProject/build/compilers/scanner.cpp
+/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp
 inttypes.h
 -
 iostream
@@ -42,9 +42,9 @@ cstring
 FlexLexer.h
 -
 parser.hpp
-/home/luis/repos/Compilers/CompilersProject/build/compilers/parser.hpp
+/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp
 FlexScanner.hpp
-/home/luis/repos/Compilers/CompilersProject/build/compilers/FlexScanner.hpp
+/home/luis/Repos/Compilers/CompilersProject/build/compilers/FlexScanner.hpp
 unistd.h
 -
 

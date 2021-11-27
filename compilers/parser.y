@@ -39,9 +39,12 @@
 %left	PLUS REST
 %left	MULT
 
+%left  PARENTHESES_LEFT
+%left  SEMICOLON
+
 %%
 
-programa: lista_declaracion {printf("Hola");}
+programa: lista_declaracion 
 		;
 
 lista_declaracion: lista_declaracion declaracion
@@ -49,23 +52,23 @@ lista_declaracion: lista_declaracion declaracion
         ;
 
 
-declaracion: var_declaracion
-        | fun_declaracion
-        ;
-
-var_declaracion: INTEGER VARIABLE SEMICOLON
-        | INTEGER VARIABLE BRACKET_LEFT NUMBER BRACKET_RIGHT SEMICOLON;
-
-
-tipo: INTEGER 
-        | VOID
+declaracion: fun_declaracion 
+        | var_declaracion
         ;
 
 fun_declaracion: tipo VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta 
         ;
 
+tipo:   INTEGER {printf("Entero de  tipo");}
+        | VOID {printf("Void de tipo");}
+        ;
+        
+var_declaracion: INTEGER VARIABLE SEMICOLON {printf("Entero");}
+        | INTEGER VARIABLE BRACKET_LEFT NUMBER BRACKET_RIGHT SEMICOLON {printf("Entero");}
+        ;
+
 params: lista_params
-        | VOID
+        | VOID 
         ;
 
 lista_params: lista_params COMA param 

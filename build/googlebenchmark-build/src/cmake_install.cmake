@@ -1,4 +1,4 @@
-# Install script for directory: /home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-src/src
+# Install script for directory: /home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-src/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "")
+    set(CMAKE_INSTALL_CONFIG_NAME "DEBUG")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -38,33 +38,33 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-build/src/libbenchmark.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-build/src/libbenchmark.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-build/src/libbenchmark_main.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-build/src/libbenchmark_main.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-src/include/benchmark" FILES_MATCHING REGEX "/[^/]*\\.[^/]*h$")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-src/include/benchmark" FILES_MATCHING REGEX "/[^/]*\\.[^/]*h$")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/benchmark" TYPE FILE FILES
-    "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-build/benchmarkConfig.cmake"
-    "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-build/benchmarkConfigVersion.cmake"
+    "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-build/benchmarkConfig.cmake"
+    "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-build/benchmarkConfigVersion.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-build/benchmark.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-build/benchmark.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/benchmark/benchmarkTargets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/benchmark/benchmarkTargets.cmake"
-         "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-build/src/CMakeFiles/Export/lib/cmake/benchmark/benchmarkTargets.cmake")
+         "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-build/src/CMakeFiles/Export/lib/cmake/benchmark/benchmarkTargets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/benchmark/benchmarkTargets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -73,13 +73,13 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/benchmark" TYPE FILE FILES "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-build/src/CMakeFiles/Export/lib/cmake/benchmark/benchmarkTargets.cmake")
-  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/benchmark" TYPE FILE FILES "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-build/src/CMakeFiles/Export/lib/cmake/benchmark/benchmarkTargets-noconfig.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/benchmark" TYPE FILE FILES "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-build/src/CMakeFiles/Export/lib/cmake/benchmark/benchmarkTargets.cmake")
+  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/benchmark" TYPE FILE FILES "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-build/src/CMakeFiles/Export/lib/cmake/benchmark/benchmarkTargets-debug.cmake")
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/doc/benchmark" TYPE DIRECTORY FILES "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-src/docs/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/doc/benchmark" TYPE DIRECTORY FILES "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-src/docs/")
 endif()
 

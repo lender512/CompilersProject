@@ -45,7 +45,7 @@ unset(_expectedTargets)
 add_library(benchmark::benchmark STATIC IMPORTED)
 
 set_target_properties(benchmark::benchmark PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-src/include"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-src/include"
   INTERFACE_LINK_LIBRARIES "\$<LINK_ONLY:Threads::Threads>;\$<LINK_ONLY:rt>"
 )
 
@@ -56,18 +56,18 @@ set_target_properties(benchmark::benchmark_main PROPERTIES
   INTERFACE_LINK_LIBRARIES "benchmark::benchmark"
 )
 
-# Import target "benchmark::benchmark" for configuration ""
-set_property(TARGET benchmark::benchmark APPEND PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
+# Import target "benchmark::benchmark" for configuration "DEBUG"
+set_property(TARGET benchmark::benchmark APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(benchmark::benchmark PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_NOCONFIG "CXX"
-  IMPORTED_LOCATION_NOCONFIG "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-build/src/libbenchmark.a"
+  IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "CXX"
+  IMPORTED_LOCATION_DEBUG "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-build/src/libbenchmark.a"
   )
 
-# Import target "benchmark::benchmark_main" for configuration ""
-set_property(TARGET benchmark::benchmark_main APPEND PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
+# Import target "benchmark::benchmark_main" for configuration "DEBUG"
+set_property(TARGET benchmark::benchmark_main APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(benchmark::benchmark_main PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_NOCONFIG "CXX"
-  IMPORTED_LOCATION_NOCONFIG "/home/luis/repos/Compilers/CompilersProject/build/googlebenchmark-build/src/libbenchmark_main.a"
+  IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "CXX"
+  IMPORTED_LOCATION_DEBUG "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-build/src/libbenchmark_main.a"
   )
 
 # This file does not depend on other imported targets which have

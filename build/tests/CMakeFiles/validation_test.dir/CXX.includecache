@@ -12,15 +12,15 @@ FlexLexer.h
 parser.hpp
 ../compilers/parser.hpp
 
-/home/luis/repos/Compilers/CompilersProject/tests/validation_test.cpp
+/home/luis/Repos/Compilers/CompilersProject/tests/validation_test.cpp
 gtest/gtest.h
 -
 strstream
 -
 FlexScanner.hpp
-/home/luis/repos/Compilers/CompilersProject/tests/FlexScanner.hpp
+/home/luis/Repos/Compilers/CompilersProject/tests/FlexScanner.hpp
 parser.hpp
-/home/luis/repos/Compilers/CompilersProject/tests/parser.hpp
+/home/luis/Repos/Compilers/CompilersProject/tests/parser.hpp
 
 compilers/parser.hpp
 cstdlib

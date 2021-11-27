@@ -15,7 +15,7 @@ TEST_P(ParamTest, basicTest) {
   FlexScanner scanner{str, std::cerr};
   int result = 0;
   Parser parser{&scanner, &result};
-
+ 
   parser.parse();
   EXPECT_EQ(result, GetParam().second);
 }
@@ -25,7 +25,10 @@ TEST_P(ParamTest, basicTest) {
 //                                         std::make_pair("entero mod(entero a, entero b);", 0)));
 
 INSTANTIATE_TEST_SUITE_P(SimpleTest, ParamTest,
-                         testing::Values(std::make_pair("sin_tipo hola ( sin_tipo ) { retorno 0; }", 0))
+                         testing::Values(
+                  
+                           std::make_pair("entero   hola ( sin_tipo ) { retorno 0; }", 0)
+                           )
                          );
 
 int main(int argc, char** argv) {

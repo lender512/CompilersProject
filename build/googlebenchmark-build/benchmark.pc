@@ -5,7 +5,7 @@ includedir=${prefix}/include
 
 Name: benchmark
 Description: Google microbenchmark framework
-Version: 1.6.0.40
+Version: 1.6.0.42
 
 Libs: -L${libdir} -lbenchmark
 Libs.private: -lpthread

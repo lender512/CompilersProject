@@ -32,7 +32,7 @@
 
 
 /**
- ** \file /home/luis/repos/Compilers/CompilersProject/build/compilers/parser.hpp
+ ** \file /home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp
  ** Define the utec::compilers::parser class.
  */
 
@@ -44,13 +44,13 @@
 #ifndef YY_YY_HOME_LUIS_REPOS_COMPILERS_COMPILERSPROJECT_BUILD_COMPILERS_PARSER_HPP_INCLUDED
 # define YY_YY_HOME_LUIS_REPOS_COMPILERS_COMPILERSPROJECT_BUILD_COMPILERS_PARSER_HPP_INCLUDED
 // "%code requires" blocks.
-#line 17 "/home/luis/repos/Compilers/CompilersProject/compilers/parser.y"
+#line 17 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 
     namespace utec::compilers {
         class FlexScanner;
     } // namespace utec::compilers
 
-#line 54 "/home/luis/repos/Compilers/CompilersProject/build/compilers/parser.hpp"
+#line 54 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp"
 
 
 # include <cstdlib> // std::abort
@@ -183,9 +183,9 @@
 # define YYDEBUG 0
 #endif
 
-#line 12 "/home/luis/repos/Compilers/CompilersProject/compilers/parser.y"
+#line 12 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 namespace utec { namespace compilers {
-#line 189 "/home/luis/repos/Compilers/CompilersProject/build/compilers/parser.hpp"
+#line 189 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp"
 
 
 
@@ -1469,9 +1469,9 @@ switch (yytype)
   };
 
 
-#line 12 "/home/luis/repos/Compilers/CompilersProject/compilers/parser.y"
+#line 12 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 } } // utec::compilers
-#line 1475 "/home/luis/repos/Compilers/CompilersProject/build/compilers/parser.hpp"
+#line 1475 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp"
 
 
 

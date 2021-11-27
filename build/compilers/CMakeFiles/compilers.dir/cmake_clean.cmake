@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "libcompilers.pdb"
   "parser.cpp"
   "parser.hpp"
+  "parser.report"
   "scanner.cpp"
 )
 
