@@ -45,7 +45,7 @@
 %%
 
 programa: lista_declaracion 
-		;
+	;
 
 lista_declaracion: lista_declaracion declaracion
         | declaracion
@@ -56,6 +56,10 @@ declaracion: fun_declaracion
         | var_declaracion
         ;
 
+var_declaracion: INTEGER VARIABLE SEMICOLON
+        | INTEGER VARIABLE BRACKET_LEFT NUMBER BRACKET_RIGHT SEMICOLON
+        ;
+
 fun_declaracion: tipo VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta 
         ;
 
@@ -63,9 +67,6 @@ tipo:   INTEGER {printf("Entero de  tipo");}
         | VOID {printf("Void de tipo");}
         ;
         
-var_declaracion: INTEGER VARIABLE SEMICOLON {printf("Entero");}
-        | INTEGER VARIABLE BRACKET_LEFT NUMBER BRACKET_RIGHT SEMICOLON {printf("Entero");}
-        ;
 
 params: lista_params
         | VOID 

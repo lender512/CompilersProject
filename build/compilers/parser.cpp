@@ -653,32 +653,20 @@ namespace utec { namespace compilers {
         {
           switch (yyn)
             {
-  case 8:
-#line 62 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+  case 10:
+#line 66 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
                 {printf("Entero de  tipo");}
 #line 660 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
     break;
 
-  case 9:
-#line 63 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+  case 11:
+#line 67 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
                {printf("Void de tipo");}
 #line 666 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
     break;
 
-  case 10:
-#line 66 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
-                                            {printf("Entero");}
-#line 672 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
-    break;
 
-  case 11:
-#line 67 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
-                                                                       {printf("Entero");}
-#line 678 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
-    break;
-
-
-#line 682 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 670 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
 
             default:
               break;
@@ -862,7 +850,7 @@ namespace utec { namespace compilers {
   const signed char
   Parser::yypact_[] =
   {
-      -2,   -23,   -87,    45,    -2,   -87,   -87,   -10,   -87,    36,
+      -2,   -23,   -87,    45,    -2,   -87,   -87,   -87,   -10,    36,
      -87,   -87,    35,    63,   -87,    24,    47,   -87,    50,    41,
       51,    59,   -87,    48,   -87,    52,    66,   -87,   -87,   -87,
      -87,    74,   -23,   -87,     3,   -87,     6,    57,    58,    20,
@@ -878,9 +866,9 @@ namespace utec { namespace compilers {
   const signed char
   Parser::yydefact_[] =
   {
-       0,     0,     9,     0,     2,     4,     5,     0,     6,     0,
-       1,     3,     0,     0,    10,     0,     0,     8,     9,     0,
-       0,    12,    15,     0,    16,     0,     0,    11,    19,     7,
+       0,     0,    11,     0,     2,     4,     6,     5,     0,     0,
+       1,     3,     0,     0,     7,     0,     0,    10,    11,     0,
+       0,    12,    15,     0,    16,     0,     0,     8,    19,     9,
       14,    21,     0,    18,     0,    56,     0,     0,     0,     0,
       17,    27,    35,    20,    22,    23,    24,    25,     0,    54,
       34,    38,    46,    50,    55,    31,     0,     0,     0,     0,
@@ -894,7 +882,7 @@ namespace utec { namespace compilers {
   const signed char
   Parser::yypgoto_[] =
   {
-     -87,   -87,   -87,    86,   -87,   -14,    71,   -87,   -87,    72,
+     -87,   -87,   -87,    86,    71,   -87,   -14,   -87,   -87,    72,
      -87,   -87,    -3,   -86,   -87,   -87,   -87,   -87,   -36,    -9,
      -87,   -87,    21,   -87,    22,   -87,    23,   -87,   -87,   -87
   };
@@ -943,9 +931,9 @@ namespace utec { namespace compilers {
   Parser::yystos_[] =
   {
        0,     4,     6,    35,    36,    37,    38,    39,    40,    30,
-       0,    37,    30,    25,    29,    23,     3,     4,     6,    39,
+       0,    37,    30,    25,    29,    23,     3,     4,     6,    40,
       41,    42,    43,    26,    30,    24,    17,    29,    27,    44,
-      43,    45,     4,    40,    46,     3,     5,     7,     8,    23,
+      43,    45,     4,    38,    46,     3,     5,     7,     8,    23,
       28,    29,    30,    47,    48,    49,    50,    51,    52,    53,
       54,    56,    58,    60,    61,    29,    52,    23,    23,    52,
       23,    25,    29,    18,    11,    12,    13,    14,    15,    16,
@@ -958,7 +946,7 @@ namespace utec { namespace compilers {
   const signed char
   Parser::yyr1_[] =
   {
-       0,    34,    35,    36,    36,    37,    37,    38,    39,    39,
+       0,    34,    35,    36,    36,    37,    37,    38,    38,    39,
       40,    40,    41,    41,    42,    42,    43,    44,    45,    45,
       46,    46,    47,    47,    47,    47,    48,    48,    49,    49,
       50,    51,    51,    52,    52,    53,    53,    54,    54,    55,
@@ -970,8 +958,8 @@ namespace utec { namespace compilers {
   const signed char
   Parser::yyr2_[] =
   {
-       0,     2,     1,     2,     1,     1,     1,     6,     1,     1,
-       3,     6,     1,     1,     3,     1,     2,     4,     2,     0,
+       0,     2,     1,     2,     1,     1,     1,     3,     6,     6,
+       1,     1,     1,     1,     3,     1,     2,     4,     2,     0,
        2,     0,     1,     1,     1,     1,     2,     1,     5,     7,
        7,     2,     3,     3,     1,     1,     4,     3,     1,     1,
        1,     1,     1,     1,     1,     3,     1,     1,     1,     3,
@@ -992,8 +980,8 @@ namespace utec { namespace compilers {
   "OP_MULT", "OP_DIVISION", "PARENTHESES_LEFT", "PARENTHESES_RIGHT",
   "BRACKET_LEFT", "BRACKET_RIGHT", "BRACES_LEFT", "BRACES_RIGHT",
   "SEMICOLON", "VARIABLE", "PLUS", "REST", "MULT", "$accept", "programa",
-  "lista_declaracion", "declaracion", "fun_declaracion", "tipo",
-  "var_declaracion", "params", "lista_params", "param", "sent_compuesta",
+  "lista_declaracion", "declaracion", "var_declaracion", "fun_declaracion",
+  "tipo", "params", "lista_params", "param", "sent_compuesta",
   "declaracion_local", "lista_sentencias", "sentencia",
   "sentencia_expresion", "sentencia_seleccion", "sentencia_iteracion",
   "sentencia_retorno", "expresion", "var", "expresion_simple", "relop",
@@ -1005,13 +993,13 @@ namespace utec { namespace compilers {
   const unsigned char
   Parser::yyrline_[] =
   {
-       0,    47,    47,    50,    51,    55,    56,    59,    62,    63,
-      66,    67,    70,    71,    74,    75,    78,    81,    84,    85,
-      88,    89,    92,    93,    94,    95,    98,    99,   102,   103,
-     106,   109,   110,   113,   114,   117,   118,   121,   122,   125,
-     126,   127,   128,   129,   130,   133,   134,   137,   138,   141,
-     142,   145,   146,   149,   150,   151,   152,   155,   158,   159,
-     162,   163
+       0,    47,    47,    50,    51,    55,    56,    59,    60,    63,
+      66,    67,    71,    72,    75,    76,    79,    82,    85,    86,
+      89,    90,    93,    94,    95,    96,    99,   100,   103,   104,
+     107,   110,   111,   114,   115,   118,   119,   122,   123,   126,
+     127,   128,   129,   130,   131,   134,   135,   138,   139,   142,
+     143,   146,   147,   150,   151,   152,   153,   156,   159,   160,
+     163,   164
   };
 
   // Print the state stack on the debug stream.
@@ -1094,9 +1082,9 @@ namespace utec { namespace compilers {
 
 #line 12 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 } } // utec::compilers
-#line 1098 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 1086 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
 
-#line 167 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 168 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 
 
 void utec::compilers::Parser::error(const std::string& msg) {
