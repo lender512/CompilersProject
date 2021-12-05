@@ -55,6 +55,8 @@ lista_declaracion: lista_declaracion declaracion
 
 declaracion: INTEGER VARIABLE declaracion_fact 
         | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta
+        | INTEGER VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON
+        | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON
         ;
         
 declaracion_fact: var_declaracion_fact
@@ -68,8 +70,8 @@ var_declaracion_fact: SEMICOLON
 /* fun_declaracion: tipo VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta 
         ; */
 
-tipo:   INTEGER {printf("Entero de  tipo");}
-        | VOID {printf("Void de tipo");}
+tipo:   INTEGER 
+        | VOID 
         ;
         
 
@@ -105,8 +107,8 @@ sentencia_expresion: expresion SEMICOLON
         | SEMICOLON
         ;
 
-sentencia_seleccion: IF PARENTHESES_LEFT expresion PARENTHESES_RIGHT BRACES_LEFT sentencia BRACES_RIGHT
-        | IF PARENTHESES_LEFT expresion PARENTHESES_RIGHT BRACES_LEFT sentencia BRACES_RIGHT ELSE BRACES_LEFT sentencia BRACES_RIGHT
+sentencia_seleccion: IF PARENTHESES_LEFT expresion PARENTHESES_RIGHT BRACES_LEFT lista_sentencias BRACES_RIGHT
+        | IF PARENTHESES_LEFT expresion PARENTHESES_RIGHT BRACES_LEFT lista_sentencias BRACES_RIGHT ELSE BRACES_LEFT lista_sentencias BRACES_RIGHT
         ;
 
 sentencia_iteracion: WHILE PARENTHESES_LEFT expresion PARENTHESES_RIGHT BRACES_LEFT lista_sentencias BRACES_RIGHT
