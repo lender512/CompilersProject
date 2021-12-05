@@ -314,8 +314,8 @@ int yyFlexLexer::yywrap() { return 1; }
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 33
-#define YY_END_OF_BUFFER 34
+#define YY_NUM_RULES 32
+#define YY_END_OF_BUFFER 33
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -323,15 +323,15 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[70] =
+static const flex_int16_t yy_accept[67] =
     {   0,
-       10,   10,   34,   32,   30,   31,   32,   24,   25,   22,
-       20,   17,   21,   23,   10,   18,   16,   19,   15,   26,
-       27,    9,    9,    9,    9,    9,   28,   29,   30,   14,
-        0,   10,   11,   13,   12,    9,    9,    9,    9,    9,
-        6,    0,    9,    9,    9,    9,    9,    0,    9,    8,
-        9,    9,    0,    7,    1,    9,    9,    9,    0,    2,
-        9,    9,    0,    9,    3,    0,    5,    4,    0
+        9,    9,   33,   31,   29,   30,   31,   23,   24,   21,
+       19,   16,   20,   22,    9,   17,   15,   18,   14,   25,
+       26,    8,    8,    8,    8,    8,   27,   28,   29,   13,
+        0,    9,   10,   12,   11,    8,    8,    8,    8,    6,
+        0,    8,    8,    8,    8,    0,    8,    8,    8,    0,
+        7,    1,    8,    8,    8,    0,    2,    8,    8,    0,
+        8,    3,    0,    5,    4,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -374,62 +374,58 @@ static const YY_CHAR yy_meta[33] =
         1,    1
     } ;
 
-static const flex_int16_t yy_base[72] =
+static const flex_int16_t yy_base[69] =
     {   0,
-        0,    0,   78,   79,   75,   79,   61,   79,   79,   79,
-       79,   79,   79,   68,   62,   79,   58,   57,   56,   79,
-       79,    0,   45,   13,   47,   45,   79,   79,   65,   79,
-        0,   54,   79,   79,   79,    0,   35,   41,   41,   32,
-       36,   53,   37,   33,   32,   30,   15,   28,   27,    0,
-       24,   25,   22,    0,   44,   24,   21,   23,   24,    0,
-       26,   19,   16,   11,    0,   12,    0,   79,   79,   34,
-       41
+        0,    0,   75,   76,   72,   76,   58,   76,   76,   76,
+       76,   76,   76,   65,   59,   76,   55,   54,   53,   76,
+       76,    0,   42,   43,   43,   41,   76,   76,   61,   76,
+        0,   50,   76,   76,   76,    0,   31,   38,   29,   33,
+       50,   34,   30,   28,   14,   27,   25,   22,   23,   20,
+        0,   42,   22,   19,   21,   22,    0,   24,   16,   12,
+        8,    0,   10,    0,   76,   76,   32,   40
     } ;
 
-static const flex_int16_t yy_def[72] =
+static const flex_int16_t yy_def[69] =
     {   0,
-       69,    1,   69,   69,   69,   69,   69,   69,   69,   69,
-       69,   69,   69,   69,   69,   69,   69,   69,   69,   69,
-       69,   70,   70,   70,   70,   70,   69,   69,   69,   69,
-       71,   69,   69,   69,   69,   70,   70,   70,   70,   70,
-       70,   71,   70,   70,   70,   70,   70,   71,   70,   70,
-       70,   70,   69,   70,   71,   70,   70,   70,   69,   70,
-       70,   70,   69,   70,   70,   69,   70,   69,    0,   69,
-       69
+       66,    1,   66,   66,   66,   66,   66,   66,   66,   66,
+       66,   66,   66,   66,   66,   66,   66,   66,   66,   66,
+       66,   67,   67,   67,   67,   67,   66,   66,   66,   66,
+       68,   66,   66,   66,   66,   67,   67,   67,   67,   67,
+       68,   67,   67,   67,   67,   68,   67,   67,   67,   66,
+       67,   68,   67,   67,   67,   66,   67,   67,   67,   66,
+       67,   67,   66,   67,   66,    0,   66,   66
     } ;
 
-static const flex_int16_t yy_nxt[112] =
+static const flex_int16_t yy_nxt[109] =
     {   0,
         4,    5,    6,    7,    8,    9,   10,   11,   12,   13,
        14,   15,   16,   17,   18,   19,   20,   21,    4,   22,
        22,   23,   22,   24,   22,   22,   22,   25,   26,   22,
-       27,   28,   38,   53,   48,   39,   36,   68,   55,   67,
-       54,   42,   66,   42,   65,   64,   63,   62,   61,   60,
-       48,   59,   58,   57,   56,   52,   51,   50,   49,   48,
-       47,   46,   45,   44,   43,   32,   29,   41,   40,   37,
-       35,   34,   33,   32,   31,   30,   29,   69,    3,   69,
-       69,   69,   69,   69,   69,   69,   69,   69,   69,   69,
-       69,   69,   69,   69,   69,   69,   69,   69,   69,   69,
+       27,   28,   50,   46,   36,   65,   64,   52,   63,   51,
+       41,   62,   41,   61,   60,   59,   58,   57,   46,   56,
+       55,   54,   53,   49,   48,   47,   46,   45,   44,   43,
+       42,   32,   29,   40,   39,   38,   37,   35,   34,   33,
+       32,   31,   30,   29,   66,    3,   66,   66,   66,   66,
+       66,   66,   66,   66,   66,   66,   66,   66,   66,   66,
+       66,   66,   66,   66,   66,   66,   66,   66,   66,   66,
 
-       69,   69,   69,   69,   69,   69,   69,   69,   69,   69,
-       69
+       66,   66,   66,   66,   66,   66,   66,   66
     } ;
 
-static const flex_int16_t yy_chk[112] =
+static const flex_int16_t yy_chk[109] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,   24,   47,   48,   24,   70,   66,   48,   64,
-       47,   71,   63,   71,   62,   61,   59,   58,   57,   56,
-       55,   53,   52,   51,   49,   46,   45,   44,   43,   42,
-       41,   40,   39,   38,   37,   32,   29,   26,   25,   23,
-       19,   18,   17,   15,   14,    7,    5,    3,   69,   69,
-       69,   69,   69,   69,   69,   69,   69,   69,   69,   69,
-       69,   69,   69,   69,   69,   69,   69,   69,   69,   69,
+        1,    1,   45,   46,   67,   63,   61,   46,   60,   45,
+       68,   59,   68,   58,   56,   55,   54,   53,   52,   50,
+       49,   48,   47,   44,   43,   42,   41,   40,   39,   38,
+       37,   32,   29,   26,   25,   24,   23,   19,   18,   17,
+       15,   14,    7,    5,    3,   66,   66,   66,   66,   66,
+       66,   66,   66,   66,   66,   66,   66,   66,   66,   66,
+       66,   66,   66,   66,   66,   66,   66,   66,   66,   66,
 
-       69,   69,   69,   69,   69,   69,   69,   69,   69,   69,
-       69
+       66,   66,   66,   66,   66,   66,   66,   66
     } ;
 
 /* The intent behind this definition is that it'll catch
@@ -444,8 +440,8 @@ static const flex_int16_t yy_chk[112] =
 #include "parser.hpp"
 #include "FlexScanner.hpp"
 #define YY_DECL int utec::compilers::FlexScanner::lex(utec::compilers::Parser::semantic_type *yylval)
-#line 448 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
-#line 449 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
+#line 444 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
+#line 445 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
 
 #define INITIAL 0
 
@@ -580,7 +576,7 @@ YY_DECL
 #line 12 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 
 
-#line 584 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
+#line 580 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -607,13 +603,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 70 )
+				if ( yy_current_state >= 67 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 79 );
+		while ( yy_base[yy_current_state] != 76 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -675,135 +671,130 @@ YY_RULE_SETUP
 case 8:
 YY_RULE_SETUP
 #line 22 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::MAIN; }
+{ return Parser::token::VARIABLE; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 23 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::VARIABLE; }
+{ return Parser::token::NUMBER; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 24 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::NUMBER; }
+#line 25 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+{ return Parser::token::LESS_EQUAL; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 26 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::LESS_EQUAL; }
+{ return Parser::token::GREATER_EQUAL; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 27 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::GREATER_EQUAL; }
+{ return Parser::token::EQUAL; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
 #line 28 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::EQUAL; }
+{ return Parser::token::NOT_EQUAL; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
 #line 29 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::NOT_EQUAL; }
+{ return Parser::token::GREATER; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
 #line 30 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::GREATER; }
+{ return Parser::token::LESS; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 31 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::LESS; }
+#line 32 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+{ return Parser::token::COMA; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
 #line 33 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::COMA; }
+{ return Parser::token::SEMICOLON; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 34 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::SEMICOLON; }
+#line 35 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+{ return Parser::token::OP_ASSIGN; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 36 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::OP_ASSIGN; }
+#line 37 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+{ return Parser::token::OP_ADD; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
 #line 38 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::OP_ADD; }
+{ return Parser::token::OP_SUBS; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 39 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::OP_SUBS; }
+#line 40 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+{ return Parser::token::OP_MULT; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
 #line 41 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::OP_MULT; }
+{ return Parser::token::OP_DIVISION; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 42 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::OP_DIVISION; }
+#line 43 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+{ return Parser::token::PARENTHESES_LEFT; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
 #line 44 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::PARENTHESES_LEFT; }
+{ return Parser::token::PARENTHESES_RIGHT; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
 #line 45 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::PARENTHESES_RIGHT; }
+{ return Parser::token::BRACKET_LEFT; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
 #line 46 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::BRACKET_LEFT; }
+{ return Parser::token::BRACKET_RIGHT; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
 #line 47 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::BRACKET_RIGHT; }
+{ return Parser::token::BRACES_LEFT; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
 #line 48 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::BRACES_LEFT; }
+{ return Parser::token::BRACES_RIGHT; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 49 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::BRACES_RIGHT; }
-	YY_BREAK
-case 30:
-YY_RULE_SETUP
-#line 51 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 50 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 {}
 	YY_BREAK
-case 31:
-/* rule 31 can match eol */
+case 30:
+/* rule 30 can match eol */
 YY_RULE_SETUP
-#line 52 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 51 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { /*yylineno++;*/	}
+	YY_BREAK
+case 31:
+YY_RULE_SETUP
+#line 53 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+{ std::cout<<"Error\n"; std::cerr << "SCANNER "; /*yyerror("");*/ exit(1);	}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 54 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ std::cout<<"Error\n"; std::cerr << "SCANNER "; /*yyerror("");*/ exit(1);	}
-	YY_BREAK
-case 33:
-YY_RULE_SETUP
-#line 56 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 55 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 807 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
+#line 798 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1220,7 +1211,7 @@ int yyFlexLexer::yy_get_next_buffer()
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 70 )
+			if ( yy_current_state >= 67 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1248,11 +1239,11 @@ int yyFlexLexer::yy_get_next_buffer()
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 70 )
+		if ( yy_current_state >= 67 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 69);
+	yy_is_jam = (yy_current_state == 66);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1766,7 +1757,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 56 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 55 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 
 
 int yyFlexLexer::yylex() {

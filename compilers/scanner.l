@@ -19,7 +19,6 @@ LETRA  [a-z]
 "mientras"  { return Parser::token::WHILE; }
 "si"  { return Parser::token::IF; }
 "sino"  { return Parser::token::ELSE; }
-"main"  { return Parser::token::MAIN; }
 {LETRA}+  { return Parser::token::VARIABLE; }
 {DIGITO}* { return Parser::token::NUMBER; }
 

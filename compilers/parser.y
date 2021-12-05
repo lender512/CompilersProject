@@ -11,6 +11,7 @@
 %define api.parser.class {Parser}
 %define api.namespace {utec::compilers}
 %define api.value.type variant
+%define parse.error verbose
 %parse-param {FlexScanner* scanner} {int* result}
 
 %code requires
@@ -29,7 +30,7 @@
 %start	programa 
 
 %token	<int>	NUMBER
-%token  INTEGER RETURN VOID WHILE IF ELSE MAIN LESS_EQUAL 
+%token  INTEGER RETURN VOID WHILE IF ELSE  LESS_EQUAL 
 %token  GREATER_EQUAL EQUAL NOT_EQUAL GREATER LESS COMA 
 %token  OP_ASSIGN OP_ADD OP_SUBS OP_MULT OP_DIVISION 
 %token  PARENTHESES_LEFT PARENTHESES_RIGHT BRACKET_LEFT BRACKET_RIGHT 
@@ -52,16 +53,20 @@ lista_declaracion: lista_declaracion declaracion
         ;
 
 
-declaracion: fun_declaracion 
-        | var_declaracion
+declaracion: INTEGER VARIABLE declaracion_fact 
+        | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta
+        ;
+        
+declaracion_fact: var_declaracion_fact
+        | PARENTHESES_LEFT params PARENTHESES_RIGHT  sent_compuesta
         ;
 
-var_declaracion: INTEGER VARIABLE SEMICOLON
-        | INTEGER VARIABLE BRACKET_LEFT NUMBER BRACKET_RIGHT SEMICOLON
+var_declaracion_fact: SEMICOLON
+        | BRACKET_LEFT NUMBER BRACKET_RIGHT SEMICOLON
         ;
 
-fun_declaracion: tipo VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta 
-        ;
+/* fun_declaracion: tipo VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta 
+        ; */
 
 tipo:   INTEGER {printf("Entero de  tipo");}
         | VOID {printf("Void de tipo");}
@@ -82,7 +87,7 @@ param: tipo VARIABLE
 sent_compuesta: BRACES_LEFT declaracion_local lista_sentencias BRACES_RIGHT
         ;
 
-declaracion_local: declaracion_local var_declaracion 
+declaracion_local: declaracion_local INTEGER VARIABLE var_declaracion_fact 
         | /* empty */
         ;
 
@@ -100,8 +105,8 @@ sentencia_expresion: expresion SEMICOLON
         | SEMICOLON
         ;
 
-sentencia_seleccion: IF PARENTHESES_LEFT expresion PARENTHESES_RIGHT sentencia
-        | IF PARENTHESES_LEFT expresion PARENTHESES_RIGHT sentencia ELSE sentencia
+sentencia_seleccion: IF PARENTHESES_LEFT expresion PARENTHESES_RIGHT BRACES_LEFT sentencia BRACES_RIGHT
+        | IF PARENTHESES_LEFT expresion PARENTHESES_RIGHT BRACES_LEFT sentencia BRACES_RIGHT ELSE BRACES_LEFT sentencia BRACES_RIGHT
         ;
 
 sentencia_iteracion: WHILE PARENTHESES_LEFT expresion PARENTHESES_RIGHT BRACES_LEFT lista_sentencias BRACES_RIGHT

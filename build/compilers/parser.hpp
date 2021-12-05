@@ -44,7 +44,7 @@
 #ifndef YY_YY_HOME_LUIS_REPOS_COMPILERS_COMPILERSPROJECT_BUILD_COMPILERS_PARSER_HPP_INCLUDED
 # define YY_YY_HOME_LUIS_REPOS_COMPILERS_COMPILERSPROJECT_BUILD_COMPILERS_PARSER_HPP_INCLUDED
 // "%code requires" blocks.
-#line 17 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 18 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 
     namespace utec::compilers {
         class FlexScanner;
@@ -417,30 +417,29 @@ namespace utec { namespace compilers {
         WHILE = 262,
         IF = 263,
         ELSE = 264,
-        MAIN = 265,
-        LESS_EQUAL = 266,
-        GREATER_EQUAL = 267,
-        EQUAL = 268,
-        NOT_EQUAL = 269,
-        GREATER = 270,
-        LESS = 271,
-        COMA = 272,
-        OP_ASSIGN = 273,
-        OP_ADD = 274,
-        OP_SUBS = 275,
-        OP_MULT = 276,
-        OP_DIVISION = 277,
-        PARENTHESES_LEFT = 278,
-        PARENTHESES_RIGHT = 279,
-        BRACKET_LEFT = 280,
-        BRACKET_RIGHT = 281,
-        BRACES_LEFT = 282,
-        BRACES_RIGHT = 283,
-        SEMICOLON = 284,
-        VARIABLE = 285,
-        PLUS = 286,
-        REST = 287,
-        MULT = 288
+        LESS_EQUAL = 265,
+        GREATER_EQUAL = 266,
+        EQUAL = 267,
+        NOT_EQUAL = 268,
+        GREATER = 269,
+        LESS = 270,
+        COMA = 271,
+        OP_ASSIGN = 272,
+        OP_ADD = 273,
+        OP_SUBS = 274,
+        OP_MULT = 275,
+        OP_DIVISION = 276,
+        PARENTHESES_LEFT = 277,
+        PARENTHESES_RIGHT = 278,
+        BRACKET_LEFT = 279,
+        BRACKET_RIGHT = 280,
+        BRACES_LEFT = 281,
+        BRACES_RIGHT = 282,
+        SEMICOLON = 283,
+        VARIABLE = 284,
+        PLUS = 285,
+        REST = 286,
+        MULT = 287
       };
     };
 
@@ -540,7 +539,7 @@ switch (yytype)
         value.template destroy< int > ();
         break;
 
-      case 30: // VARIABLE
+      case 29: // VARIABLE
         value.template destroy< std::string > ();
         break;
 
@@ -617,13 +616,13 @@ switch (yytype)
       symbol_type (int tok)
         : super_type(token_type (tok))
       {
-        YY_ASSERT (tok == 0 || tok == token::INTEGER || tok == token::RETURN || tok == token::VOID || tok == token::WHILE || tok == token::IF || tok == token::ELSE || tok == token::MAIN || tok == token::LESS_EQUAL || tok == token::GREATER_EQUAL || tok == token::EQUAL || tok == token::NOT_EQUAL || tok == token::GREATER || tok == token::LESS || tok == token::COMA || tok == token::OP_ASSIGN || tok == token::OP_ADD || tok == token::OP_SUBS || tok == token::OP_MULT || tok == token::OP_DIVISION || tok == token::PARENTHESES_LEFT || tok == token::PARENTHESES_RIGHT || tok == token::BRACKET_LEFT || tok == token::BRACKET_RIGHT || tok == token::BRACES_LEFT || tok == token::BRACES_RIGHT || tok == token::SEMICOLON || tok == token::PLUS || tok == token::REST || tok == token::MULT);
+        YY_ASSERT (tok == 0 || tok == token::INTEGER || tok == token::RETURN || tok == token::VOID || tok == token::WHILE || tok == token::IF || tok == token::ELSE || tok == token::LESS_EQUAL || tok == token::GREATER_EQUAL || tok == token::EQUAL || tok == token::NOT_EQUAL || tok == token::GREATER || tok == token::LESS || tok == token::COMA || tok == token::OP_ASSIGN || tok == token::OP_ADD || tok == token::OP_SUBS || tok == token::OP_MULT || tok == token::OP_DIVISION || tok == token::PARENTHESES_LEFT || tok == token::PARENTHESES_RIGHT || tok == token::BRACKET_LEFT || tok == token::BRACKET_RIGHT || tok == token::BRACES_LEFT || tok == token::BRACES_RIGHT || tok == token::SEMICOLON || tok == token::PLUS || tok == token::REST || tok == token::MULT);
       }
 #else
       symbol_type (int tok)
         : super_type(token_type (tok))
       {
-        YY_ASSERT (tok == 0 || tok == token::INTEGER || tok == token::RETURN || tok == token::VOID || tok == token::WHILE || tok == token::IF || tok == token::ELSE || tok == token::MAIN || tok == token::LESS_EQUAL || tok == token::GREATER_EQUAL || tok == token::EQUAL || tok == token::NOT_EQUAL || tok == token::GREATER || tok == token::LESS || tok == token::COMA || tok == token::OP_ASSIGN || tok == token::OP_ADD || tok == token::OP_SUBS || tok == token::OP_MULT || tok == token::OP_DIVISION || tok == token::PARENTHESES_LEFT || tok == token::PARENTHESES_RIGHT || tok == token::BRACKET_LEFT || tok == token::BRACKET_RIGHT || tok == token::BRACES_LEFT || tok == token::BRACES_RIGHT || tok == token::SEMICOLON || tok == token::PLUS || tok == token::REST || tok == token::MULT);
+        YY_ASSERT (tok == 0 || tok == token::INTEGER || tok == token::RETURN || tok == token::VOID || tok == token::WHILE || tok == token::IF || tok == token::ELSE || tok == token::LESS_EQUAL || tok == token::GREATER_EQUAL || tok == token::EQUAL || tok == token::NOT_EQUAL || tok == token::GREATER || tok == token::LESS || tok == token::COMA || tok == token::OP_ASSIGN || tok == token::OP_ADD || tok == token::OP_SUBS || tok == token::OP_MULT || tok == token::OP_DIVISION || tok == token::PARENTHESES_LEFT || tok == token::PARENTHESES_RIGHT || tok == token::BRACKET_LEFT || tok == token::BRACKET_RIGHT || tok == token::BRACES_LEFT || tok == token::BRACES_RIGHT || tok == token::SEMICOLON || tok == token::PLUS || tok == token::REST || tok == token::MULT);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -791,21 +790,6 @@ switch (yytype)
       make_ELSE ()
       {
         return symbol_type (token::ELSE);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_MAIN ()
-      {
-        return symbol_type (token::MAIN);
-      }
-#else
-      static
-      symbol_type
-      make_MAIN ()
-      {
-        return symbol_type (token::MAIN);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -1224,10 +1208,13 @@ switch (yytype)
     static const signed char yyr2_[];
 
 
-#if YYDEBUG
+    /// Convert the symbol name \a n to a form suitable for a diagnostic.
+    static std::string yytnamerr_ (const char *n);
+
+
     /// For a symbol, its name in clear.
     static const char* const yytname_[];
-
+#if YYDEBUG
     // YYRLINE[YYN] -- Source line where rule number YYN was defined.
     static const unsigned char yyrline_[];
     /// Report on the debug stream that the rule \a r is going to be reduced.
@@ -1456,10 +1443,10 @@ switch (yytype)
     enum
     {
       yyeof_ = 0,
-      yylast_ = 102,     ///< Last index in yytable_.
+      yylast_ = 119,     ///< Last index in yytable_.
       yynnts_ = 30,  ///< Number of nonterminal symbols.
-      yyfinal_ = 10, ///< Termination state number.
-      yyntokens_ = 34  ///< Number of tokens.
+      yyfinal_ = 8, ///< Termination state number.
+      yyntokens_ = 33  ///< Number of tokens.
     };
 
 
@@ -1471,7 +1458,7 @@ switch (yytype)
 
 #line 12 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 } } // utec::compilers
-#line 1475 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp"
+#line 1462 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp"
 
 
 

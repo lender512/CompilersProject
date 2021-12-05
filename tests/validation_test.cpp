@@ -27,7 +27,17 @@ TEST_P(ParamTest, basicTest) {
 INSTANTIATE_TEST_SUITE_P(SimpleTest, ParamTest,
                          testing::Values(
                   
-                           std::make_pair("entero  a ( sin_tipo ) { retorno 0; }", 0)
+                           std::make_pair("sin_tipo main(sin_tipo) {  "
+                             "entero b;"
+                             "b = 1;"
+                             "si ( b > 2 ) {"
+                             "b = 9;"
+                             "}"
+                             "sino {"
+                             "b = 8;"
+                             "}"
+                             "retorno 0;"
+                             "}", 0)
                            )
                          );
 
