@@ -18,7 +18,7 @@ class FlexScanner : public yyFlexLexer {
               std::ostream* arg_yyout = nullptr)
       : yyFlexLexer(arg_yyin, arg_yyout) {}
   int lex(
-      Parser::semantic_type* yylval);  // note: this is the prototype we need
+      Parser::semantic_type* yylval);  // 
 };
 
 }  // namespace compilers

@@ -8,4 +8,6 @@ cd build
 cmake ..
 make -j5
 ctest
+
+cp -r ce ~/.vscode/extensions
 ```

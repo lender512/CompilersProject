@@ -6,16 +6,6 @@
 
 int line_number = 1;
 
-void eat_to_newline(void)
-{
-int c;
-    while ((c = getchar()) != '\0' && c != ';')
-        ;
-
-}
-
-
-
 %}
 
 %{

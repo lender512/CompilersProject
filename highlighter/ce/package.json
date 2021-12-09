@@ -1,0 +1,25 @@
+{
+    "name": "ce",
+    "displayName": "ce",
+    "description": "C en español",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.63.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "ce",
+            "aliases": ["C en español", "ce"],
+            "extensions": [".ce"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "ce",
+            "scopeName": "source.ce",
+            "path": "./syntaxes/ce.tmLanguage.json"
+        }]
+    }
+}

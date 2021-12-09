@@ -65,5 +65,6 @@
         "random": "cpp",
         "regex": "cpp",
         "shared_mutex": "cpp"
-    }
+    },
+    "git.ignoreLimitWarning": true
 }

@@ -1,0 +1,98 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "C en español",
+	"patterns": [
+		{
+			"include": "#comments-inline"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#operators"
+		}
+
+	],
+
+	"repository": {
+		"numbers": {
+			"patterns": [{
+				"name": "constant.numeric.ce",
+				"match": "[1-9]\\d*"
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.ce",
+				"match": "\\b(si|mientras|retorno|sino)\\b"
+			}]
+		},
+		"comments": {
+			"name": "comment.ce",
+			"begin": "/\\*",
+			"end": "\\*/",
+			"patterns": [
+				{
+					"name": "comment.character.escape.ce",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments-inline": {
+			"name": "comment.line.double-slash.ce",
+			"begin": "//",
+			"end": "\\n",
+			"patterns": [
+				{
+					"name": "comments-inline.character.escape.ce",
+					"match": "\\\\."
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name": "storage.type.ce",
+					"match": "\\b(sin_tipo|entero)\\b"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.ce",
+					"match": "\\+|-|/|\\*|>=|>|<=|<|==|!="
+				}
+			]
+		},
+		"functions": {
+			"patterns": [{
+				"name": "entity.name.function.ce",
+				"begin": "([a-zA-Z]+)\\(",
+				"end": "\\)",
+				"patterns": [{"include": "#types"}, {"include": "#parameters"}]
+				
+
+			}]
+		},
+		"parameters": {
+			"patterns": [{
+				"name": "variable.parameter",
+				"match": "[a-z]+"
+			}]
+		}
+	},
+	"scopeName": "source.ce"
+}
