@@ -3,6 +3,8 @@
 #include <string>
 #include <cmath>
 #include <FlexLexer.h>
+
+extern int mylineno;
 %}
 
 %require "3.5.1"
@@ -12,8 +14,8 @@
 %define api.namespace {utec::compilers}
 %define api.value.type variant
 %define parse.error verbose
+%error-verbose
 %parse-param {FlexScanner* scanner} {int* result}
-
 %code requires
 {
     namespace utec::compilers {
@@ -21,11 +23,19 @@
     } // namespace utec::compilers
 }
 
+
+
 %code
 {
     #include "FlexScanner.hpp"
     #define yylex(x) scanner->lex(x)
+
+
+
+
+
 }
+
 
 %start	programa 
 
@@ -45,7 +55,8 @@
 
 %%
 
-programa: lista_declaracion 
+programa: lista_declaracion
+
 	;
 
 lista_declaracion: lista_declaracion declaracion
@@ -57,14 +68,18 @@ declaracion: INTEGER VARIABLE declaracion_fact
         | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta
         | INTEGER VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON
         | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON
+
         ;
         
 declaracion_fact: var_declaracion_fact
+        
         | PARENTHESES_LEFT params PARENTHESES_RIGHT  sent_compuesta
+        /* | error {yyerrok; } */
         ;
 
 var_declaracion_fact: SEMICOLON
         | BRACKET_LEFT NUMBER BRACKET_RIGHT SEMICOLON
+        | error SEMICOLON {yyerrok; yyclearin;}
         ;
 
 /* fun_declaracion: tipo VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta 
@@ -101,14 +116,17 @@ sentencia: sentencia_expresion
         | sentencia_seleccion
         | sentencia_iteracion
         | sentencia_retorno
+        
         ;
 
 sentencia_expresion: expresion SEMICOLON
         | SEMICOLON
+        | error SEMICOLON {yyerrok; yyclearin;}
         ;
 
 sentencia_seleccion: IF PARENTHESES_LEFT expresion PARENTHESES_RIGHT BRACES_LEFT lista_sentencias BRACES_RIGHT
         | IF PARENTHESES_LEFT expresion PARENTHESES_RIGHT BRACES_LEFT lista_sentencias BRACES_RIGHT ELSE BRACES_LEFT lista_sentencias BRACES_RIGHT
+        | error BRACES_RIGHT {yyerrok; yyclearin;}
         ;
 
 sentencia_iteracion: WHILE PARENTHESES_LEFT expresion PARENTHESES_RIGHT BRACES_LEFT lista_sentencias BRACES_RIGHT
@@ -116,6 +134,7 @@ sentencia_iteracion: WHILE PARENTHESES_LEFT expresion PARENTHESES_RIGHT BRACES_L
 
 sentencia_retorno: RETURN SEMICOLON
         | RETURN expresion SEMICOLON
+        | error SEMICOLON {yyerrok; yyclearin;}
         ;
 
 expresion: var OP_ASSIGN expresion
@@ -175,28 +194,7 @@ lista_arg: lista_arg COMA expresion
 %%
 
 void utec::compilers::Parser::error(const std::string& msg) {
-    std::cerr << msg << " " /*<< yylineno*/ <<'\n';
-    exit(1);
+    std::cout << msg << " in line "<< mylineno <<  '\n';
+    
+    /* exit(1); */
 }
-
-// exp:  exp opsuma term { $$ = $1 + $3; }
-//     | exp oprest term { $$ = $1 - $3; }
-//     | term  { $$ = $1; }
-//     ;
-
-// opsuma: PLUS
-//     ;
-
-// oprest: REST
-//     ;
-
-// term: term opmult factor  { $$ = $1 * $3; }
-//     | factor  { $$ = $1; }
-//     ;
-
-// opmult: MULT
-//     ;
-
-// factor: PAR_BEGIN exp PAR_END { $$ = $2; }
-//     | INTEGER_LITERAL 	{ $$ = $1; }
-//     ;

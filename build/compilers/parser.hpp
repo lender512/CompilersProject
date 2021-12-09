@@ -44,7 +44,7 @@
 #ifndef YY_YY_HOME_LUIS_REPOS_COMPILERS_COMPILERSPROJECT_BUILD_COMPILERS_PARSER_HPP_INCLUDED
 # define YY_YY_HOME_LUIS_REPOS_COMPILERS_COMPILERSPROJECT_BUILD_COMPILERS_PARSER_HPP_INCLUDED
 // "%code requires" blocks.
-#line 18 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 20 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 
     namespace utec::compilers {
         class FlexScanner;
@@ -183,7 +183,7 @@
 # define YYDEBUG 0
 #endif
 
-#line 12 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 14 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 namespace utec { namespace compilers {
 #line 189 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp"
 
@@ -1443,7 +1443,7 @@ switch (yytype)
     enum
     {
       yyeof_ = 0,
-      yylast_ = 120,     ///< Last index in yytable_.
+      yylast_ = 130,     ///< Last index in yytable_.
       yynnts_ = 30,  ///< Number of nonterminal symbols.
       yyfinal_ = 8, ///< Termination state number.
       yyntokens_ = 33  ///< Number of tokens.
@@ -1456,7 +1456,7 @@ switch (yytype)
   };
 
 
-#line 12 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 14 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 } } // utec::compilers
 #line 1462 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp"
 

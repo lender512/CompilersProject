@@ -17,6 +17,10 @@ gtest/gtest.h
 -
 strstream
 -
+iostream
+-
+fstream
+-
 FlexScanner.hpp
 /home/luis/Repos/Compilers/CompilersProject/tests/FlexScanner.hpp
 parser.hpp

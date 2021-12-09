@@ -1,0 +1,4 @@
+entero moda(sin_tipo) {
+    entero a
+    retorno
+}

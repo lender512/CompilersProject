@@ -1,0 +1,34 @@
+sin_tipo moda(sin_tipo);
+entero mod(entero a, entero b);
+entero mod(entero a, entero b){
+    entero r;
+    entero a;
+    r = 3;
+    a = 9;
+    retorno a - b;
+}
+sin_tipo main(sin_tipo) {  
+    entero b;
+    entero d;
+    b = 1;
+    si ( b > 2 ) {
+        b = 2;
+        si (b != 3) {
+            b = 1;
+            si (b == 3){
+                b = 10;
+            }
+            sino {
+                b = 20;
+            }
+        }
+    }
+    si (b != 3) {
+    }
+    sino {
+        b = 8;
+    }
+    mientras (b != 0) {
+    }
+    retorno 0;
+}

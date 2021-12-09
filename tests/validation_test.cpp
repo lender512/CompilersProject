@@ -1,7 +1,8 @@
 #include <gtest/gtest.h>
 
 #include <strstream>
-
+#include <iostream>
+#include <fstream>
 #include "FlexScanner.hpp"
 #include "parser.hpp"
 
@@ -20,47 +21,33 @@ TEST_P(ParamTest, basicTest) {
   EXPECT_EQ(result, GetParam().second);
 }
 
-// INSTANTIATE_TEST_SUITE_P(SimpleTest, ParamTest,
-//                          testing::Values(std::make_pair("entero mod(entero a, entero b);", 0),
-//                                         std::make_pair("entero mod(entero a, entero b);", 0)));
+std::string readFromFile(std::string filename) {
+  
+   std::ifstream file("../../tests/" + filename);
+    std::string temp;
+    std::string input;
+    while(std::getline(file, temp)) {
+          input += temp + "\n";
+    }
+    return input;  
+}
 
 INSTANTIATE_TEST_SUITE_P(SimpleTest, ParamTest,
                          testing::Values(
-                  
-                           std::make_pair(
-                             "sin_tipo moda(sin_tipo);"
-                             "entero mod(entero a, entero b);"
-                             "entero mod(entero a, entero b){"
-                             "  retorno a - b;"
-                             "}"
-                             "sin_tipo main(sin_tipo) {  "
-                             "entero b;"
-                             "entero d;"
-                             "b = 1;"
-                             "si ( b > 2 ) {"
-                             "b = 2;"
-                             "si (b != 3) {"
-                             "b = 1;"
-                             "si (b == 3){"
-                             "b = 10;"
-                             "}"
-                             "sino {"
-                             "b = 20;"
-                             "}"
-                             "}"
-                             "}"
-                             "si (b != 3) {"
-                             "}"
-                             "sino {"
-                             "b = 8;"
-                             "}"
-                             "mientras (b != 0) {"
-                             "}"
-                             "retorno 0;"
-                             "}"
-                             , 0)
-                           )
-                         );
+                           std::make_pair(readFromFile("test1.ce"), 0),
+                           std::make_pair(readFromFile("test2.ce"), 0)
+                          // std::make_pair(
+                          //    "sin_tipo moda(sin_tipo) {\n"
+                          //       "entero b};\n"
+                          //      "entero c;\n"
+                          //      "entero a{;\n"
+                          //      "a = ;\n"
+                          //      "}\n" , 0)
+                          //  std::make_pair(
+                        
+                          //    , 0)
+                           
+                         ));
 
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);

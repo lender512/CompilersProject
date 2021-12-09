@@ -2,6 +2,24 @@
 #include "parser.hpp"
 #include "FlexScanner.hpp"
 #define YY_DECL int utec::compilers::FlexScanner::lex(utec::compilers::Parser::semantic_type *yylval)
+
+
+int line_number = 1;
+
+void eat_to_newline(void)
+{
+int c;
+    while ((c = getchar()) != '\0' && c != ';')
+        ;
+
+}
+
+
+
+%}
+
+%{
+    int mylineno = 1;
 %}
 
 %option c++ interactive noyywrap noyylineno nodefault
@@ -48,7 +66,7 @@ LETRA  [a-z]
 "}"  { return Parser::token::BRACES_RIGHT; }
 
 [ \t]*		{}
-[\n]		{ /*yylineno++;*/	}
+[\n]		{ mylineno++;	}
 
 .		{ std::cout<<"Error\n"; std::cerr << "SCANNER "; /*yyerror("");*/ exit(1);	}
 

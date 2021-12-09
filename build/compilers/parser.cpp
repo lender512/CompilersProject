@@ -43,19 +43,26 @@
 #include <cmath>
 #include <FlexLexer.h>
 
-#line 47 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+extern int mylineno;
+
+#line 49 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
 
 
 #include "parser.hpp"
 
 
 // Unqualified %code blocks.
-#line 25 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 29 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 
     #include "FlexScanner.hpp"
     #define yylex(x) scanner->lex(x)
 
-#line 59 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+
+
+
+
+
+#line 66 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
 
 
 #ifndef YY_
@@ -126,9 +133,9 @@
 #define YYERROR         goto yyerrorlab
 #define YYRECOVERING()  (!!yyerrstatus_)
 
-#line 12 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 14 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 namespace utec { namespace compilers {
-#line 132 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 139 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
 
 
   /* Return YYSTR after stripping away unnecessary quotes and
@@ -694,8 +701,32 @@ namespace utec { namespace compilers {
         {
           switch (yyn)
             {
+  case 13:
+#line 82 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+                          {yyerrok; yyclearin;}
+#line 708 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+    break;
 
-#line 699 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+  case 32:
+#line 124 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+                          {yyerrok; yyclearin;}
+#line 714 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+    break;
+
+  case 35:
+#line 129 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+                             {yyerrok; yyclearin;}
+#line 720 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+    break;
+
+  case 39:
+#line 137 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+                          {yyerrok; yyclearin;}
+#line 726 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+    break;
+
+
+#line 730 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
 
             default:
               break;
@@ -962,135 +993,137 @@ namespace utec { namespace compilers {
   }
 
 
-  const signed char Parser::yypact_ninf_ = -92;
+  const signed char Parser::yypact_ninf_ = -46;
 
-  const signed char Parser::yytable_ninf_ = -17;
+  const signed char Parser::yytable_ninf_ = -18;
 
   const signed char
   Parser::yypact_[] =
   {
-      43,   -28,   -25,    21,    43,   -92,    -8,    14,   -92,   -92,
-      64,    48,   -92,   -92,   -92,    64,   -92,    23,    26,    66,
-      74,   -92,    67,    68,   -92,    15,    81,    69,    60,   -92,
-     -92,   -92,   -92,   -92,   -92,   -92,   -92,    89,    70,     2,
-     -22,   -92,     5,    72,    73,    32,   -92,   -92,    47,   -92,
-     -92,   -92,   -92,   -92,    75,    79,   -92,    65,    42,   -92,
-     -92,   -92,   -92,    76,    32,    32,    77,    32,    32,   -92,
-      32,   -92,   -92,   -92,   -92,   -92,   -92,   -92,   -92,    32,
-      32,   -92,   -92,    32,   -92,    78,    82,   -92,   -92,    83,
-      86,    84,   -92,   -92,    63,    42,   -92,    85,    87,   -92,
-      32,   -92,   -92,   -92,   -92,    10,    37,   -92,    98,    88,
-     -92,    45,   -92
+      -2,   -28,   -11,    22,    -2,   -46,    37,    15,   -46,   -46,
+      27,     2,    61,   -46,   -46,   -46,     2,   -46,   -46,    66,
+      38,    76,    84,   -46,    67,    78,   -46,   -12,    17,    74,
+      25,   -46,   -46,   -46,   -46,   -46,   -46,   -46,   -46,    99,
+      77,     4,    34,    47,   -46,    44,    82,    83,     7,   -46,
+     -46,    21,   -46,   -46,   -46,   -46,   -46,    80,    90,   -46,
+      69,    75,   -46,   -46,   -46,   -46,   -46,   -46,    81,     7,
+       7,    87,     7,     7,   -46,     7,   -46,   -46,   -46,   -46,
+     -46,   -46,   -46,   -46,     7,     7,   -46,   -46,     7,   -46,
+      88,    89,   -46,   -46,    91,    97,    92,   -46,   -46,    79,
+      75,   -46,    93,    94,   -46,     7,   -46,   -46,   -46,   -46,
+      12,    41,   -46,   106,    95,   -46,    49,   -46
   };
 
   const signed char
   Parser::yydefact_[] =
   {
        0,     0,     0,     0,     2,     4,     0,     0,     1,     3,
-       0,     0,    11,     5,     9,     0,    13,    14,     0,     0,
-      15,    18,     0,     0,    19,     0,     0,     0,     0,    22,
-       7,    10,    14,    17,    12,     8,     6,    24,     0,     0,
-       0,    59,     0,     0,     0,     0,    20,    30,    38,    23,
-      25,    26,    27,    28,     0,    57,    37,    41,    49,    53,
-      58,    21,    34,     0,     0,     0,     0,    62,     0,    29,
-       0,    43,    45,    46,    47,    44,    42,    50,    51,     0,
-       0,    54,    55,     0,    35,     0,     0,    56,    64,     0,
-      61,     0,    36,    57,    40,    48,    52,     0,     0,    60,
-       0,    39,    24,    24,    63,     0,     0,    33,    31,     0,
-      24,     0,    32
+       0,     0,     0,    11,     5,     9,     0,    13,    14,    15,
+       0,     0,    16,    19,     0,     0,    20,     0,     0,     0,
+       0,    23,     7,    10,    15,    18,    12,     8,     6,    25,
+       0,     0,     0,     0,    63,     0,     0,     0,     0,    21,
+      31,    42,    24,    26,    27,    28,    29,     0,    61,    41,
+      45,    53,    57,    62,    22,    35,    32,    37,     0,     0,
+       0,     0,    66,     0,    30,     0,    47,    49,    50,    51,
+      48,    46,    54,    55,     0,     0,    58,    59,     0,    38,
+       0,     0,    60,    68,     0,    65,     0,    40,    61,    44,
+      52,    56,     0,     0,    64,     0,    43,    25,    25,    67,
+       0,     0,    36,    33,     0,    25,     0,    34
   };
 
   const signed char
   Parser::yypgoto_[] =
   {
-     -92,   -92,   -92,    94,   -92,    80,   -92,    93,   -92,    90,
-      91,   -92,   -91,   -92,   -92,   -92,   -92,   -92,   -42,   -23,
-     -92,   -92,    31,   -92,    35,   -92,    29,   -92,   -92,   -92
+     -46,   -46,   -46,   112,   -46,    85,   -46,   102,   -46,    96,
+      98,   -46,   -22,   -46,   -46,   -46,   -46,   -46,   -45,     6,
+     -46,   -46,    39,   -46,    40,   -46,    42,   -46,   -46,   -46
   };
 
   const signed char
   Parser::yydefgoto_[] =
   {
-      -1,     3,     4,     5,    13,    14,    18,    19,    20,    21,
-      31,    37,    39,    49,    50,    51,    52,    53,    54,    55,
-      56,    79,    57,    80,    58,    83,    59,    60,    89,    90
+      -1,     3,     4,     5,    14,    15,    20,    21,    22,    23,
+      33,    39,    41,    52,    53,    54,    55,    56,    57,    58,
+      59,    84,    60,    85,    61,    88,    62,    63,    94,    95
   };
 
   const signed char
   Parser::yytable_[] =
   {
-      63,     6,    11,    66,     7,    41,    12,    42,    41,    43,
-      44,   105,   106,    41,    10,    42,    11,    43,    44,   111,
-      12,     8,    85,    86,    45,    88,    91,    45,    92,    46,
-      47,    48,    45,    62,    48,    41,    15,   107,    47,    48,
-      41,    29,    42,    30,    43,    44,   -16,     1,    41,     2,
-      42,    22,    43,    44,    45,    24,    93,    93,   104,    45,
-      93,    48,    81,    82,   108,    47,    48,    45,    16,    67,
-      17,    68,   112,    47,    48,    71,    72,    73,    74,    75,
-      76,    77,    78,    77,    78,    16,    29,    32,    35,    25,
-      26,    28,    27,    38,    64,    65,    70,    34,     9,    40,
-      87,    97,   100,    69,    84,    98,    99,   109,    23,   101,
-      94,   102,    96,   103,   110,    95,    33,     0,     0,    36,
-      61
+      68,     6,     1,    71,     2,    43,    18,    44,    19,    45,
+      44,    46,    47,    43,    31,    44,    32,    45,     7,    46,
+      47,    18,     8,    34,    90,    91,    48,    93,    96,    48,
+      97,    49,    50,    51,    48,    10,    51,    16,    10,   112,
+      50,    51,    43,    72,    44,    73,    45,    44,    46,    47,
+      43,    31,    44,    37,    45,    17,    46,    47,    12,    11,
+     109,    12,    13,    48,    24,    13,    48,    26,   113,    50,
+      51,    48,    67,    51,    65,    66,   117,    50,    51,    76,
+      77,    78,    79,    80,    81,   110,   111,    82,    83,   -17,
+      98,    98,    29,   116,    98,    86,    87,    82,    83,    27,
+      28,    30,    36,    40,    69,    70,    42,    75,    74,    89,
+      92,   102,   103,   105,   104,   114,     9,   106,    25,   107,
+     108,   115,     0,    99,    35,   100,     0,    64,    38,     0,
+     101
   };
 
   const signed char
   Parser::yycheck_[] =
   {
-      42,    29,    24,    45,    29,     3,    28,     5,     3,     7,
-       8,   102,   103,     3,    22,     5,    24,     7,     8,   110,
-      28,     0,    64,    65,    22,    67,    68,    22,    70,    27,
-      28,    29,    22,    28,    29,     3,    22,    27,    28,    29,
-       3,    26,     5,    28,     7,     8,    23,     4,     3,     6,
-       5,     3,     7,     8,    22,    29,    79,    80,   100,    22,
-      83,    29,    20,    21,    27,    28,    29,    22,     4,    22,
-       6,    24,    27,    28,    29,    10,    11,    12,    13,    14,
-      15,    18,    19,    18,    19,     4,    26,     6,    28,    23,
-      16,    23,    25,     4,    22,    22,    17,    28,     4,    29,
-      23,    23,    16,    28,    28,    23,    23,     9,    15,    25,
-      79,    26,    83,    26,    26,    80,    26,    -1,    -1,    28,
-      40
+      45,    29,     4,    48,     6,     1,     4,     3,     6,     5,
+       3,     7,     8,     1,    26,     3,    28,     5,    29,     7,
+       8,     4,     0,     6,    69,    70,    22,    72,    73,    22,
+      75,    27,    28,    29,    22,     1,    29,    22,     1,    27,
+      28,    29,     1,    22,     3,    24,     5,     3,     7,     8,
+       1,    26,     3,    28,     5,    28,     7,     8,    24,    22,
+     105,    24,    28,    22,     3,    28,    22,    29,    27,    28,
+      29,    22,    28,    29,    27,    28,    27,    28,    29,    10,
+      11,    12,    13,    14,    15,   107,   108,    18,    19,    23,
+      84,    85,    25,   115,    88,    20,    21,    18,    19,    23,
+      16,    23,    28,     4,    22,    22,    29,    17,    28,    28,
+      23,    23,    23,    16,    23,     9,     4,    25,    16,    26,
+      26,    26,    -1,    84,    28,    85,    -1,    42,    30,    -1,
+      88
   };
 
   const signed char
   Parser::yystos_[] =
   {
        0,     4,     6,    34,    35,    36,    29,    29,     0,    36,
-      22,    24,    28,    37,    38,    22,     4,     6,    39,    40,
-      41,    42,     3,    40,    29,    23,    16,    25,    23,    26,
-      28,    43,     6,    42,    28,    28,    43,    44,     4,    45,
-      29,     3,     5,     7,     8,    22,    27,    28,    29,    46,
-      47,    48,    49,    50,    51,    52,    53,    55,    57,    59,
-      60,    38,    28,    51,    22,    22,    51,    22,    24,    28,
-      17,    10,    11,    12,    13,    14,    15,    18,    19,    54,
-      56,    20,    21,    58,    28,    51,    51,    23,    51,    61,
-      62,    51,    51,    52,    55,    57,    59,    23,    23,    23,
-      16,    25,    26,    26,    51,    45,    45,    27,    27,     9,
-      26,    45,    27
+       1,    22,    24,    28,    37,    38,    22,    28,     4,     6,
+      39,    40,    41,    42,     3,    40,    29,    23,    16,    25,
+      23,    26,    28,    43,     6,    42,    28,    28,    43,    44,
+       4,    45,    29,     1,     3,     5,     7,     8,    22,    27,
+      28,    29,    46,    47,    48,    49,    50,    51,    52,    53,
+      55,    57,    59,    60,    38,    27,    28,    28,    51,    22,
+      22,    51,    22,    24,    28,    17,    10,    11,    12,    13,
+      14,    15,    18,    19,    54,    56,    20,    21,    58,    28,
+      51,    51,    23,    51,    61,    62,    51,    51,    52,    55,
+      57,    59,    23,    23,    23,    16,    25,    26,    26,    51,
+      45,    45,    27,    27,     9,    26,    45,    27
   };
 
   const signed char
   Parser::yyr1_[] =
   {
        0,    33,    34,    35,    35,    36,    36,    36,    36,    37,
-      37,    38,    38,    39,    39,    40,    40,    41,    41,    42,
-      43,    44,    44,    45,    45,    46,    46,    46,    46,    47,
-      47,    48,    48,    49,    50,    50,    51,    51,    52,    52,
-      53,    53,    54,    54,    54,    54,    54,    54,    55,    55,
-      56,    56,    57,    57,    58,    58,    59,    59,    59,    59,
-      60,    61,    61,    62,    62
+      37,    38,    38,    38,    39,    39,    40,    40,    41,    41,
+      42,    43,    44,    44,    45,    45,    46,    46,    46,    46,
+      47,    47,    47,    48,    48,    48,    49,    50,    50,    50,
+      51,    51,    52,    52,    53,    53,    54,    54,    54,    54,
+      54,    54,    55,    55,    56,    56,    57,    57,    58,    58,
+      59,    59,    59,    59,    60,    61,    61,    62,    62
   };
 
   const signed char
   Parser::yyr2_[] =
   {
        0,     2,     1,     2,     1,     3,     6,     6,     6,     1,
-       4,     1,     4,     1,     1,     1,     1,     3,     1,     2,
-       4,     4,     0,     2,     0,     1,     1,     1,     1,     2,
-       1,     7,    11,     7,     2,     3,     3,     1,     1,     4,
-       3,     1,     1,     1,     1,     1,     1,     1,     3,     1,
+       4,     1,     4,     2,     1,     1,     1,     1,     3,     1,
+       2,     4,     4,     0,     2,     0,     1,     1,     1,     1,
+       2,     1,     2,     7,    11,     2,     7,     2,     3,     2,
+       3,     1,     1,     4,     3,     1,     1,     1,     1,     1,
        1,     1,     3,     1,     1,     1,     3,     1,     1,     1,
-       4,     1,     0,     3,     1
+       3,     1,     1,     1,     4,     1,     0,     3,     1
   };
 
 
@@ -1119,13 +1152,13 @@ namespace utec { namespace compilers {
   const unsigned char
   Parser::yyrline_[] =
   {
-       0,    48,    48,    51,    52,    56,    57,    58,    59,    62,
-      63,    66,    67,    73,    74,    78,    79,    82,    83,    86,
-      89,    92,    93,    96,    97,   100,   101,   102,   103,   106,
-     107,   110,   111,   114,   117,   118,   121,   122,   125,   126,
-     129,   130,   133,   134,   135,   136,   137,   138,   141,   142,
-     145,   146,   149,   150,   153,   154,   157,   158,   159,   160,
-     163,   166,   167,   170,   171
+       0,    58,    58,    62,    63,    67,    68,    69,    70,    74,
+      76,    80,    81,    82,    88,    89,    93,    94,    97,    98,
+     101,   104,   107,   108,   111,   112,   115,   116,   117,   118,
+     122,   123,   124,   127,   128,   129,   132,   135,   136,   137,
+     140,   141,   144,   145,   148,   149,   152,   153,   154,   155,
+     156,   157,   160,   161,   164,   165,   168,   169,   172,   173,
+     176,   177,   178,   179,   182,   185,   186,   189,   190
   };
 
   // Print the state stack on the debug stream.
@@ -1206,36 +1239,15 @@ namespace utec { namespace compilers {
       return yy_undef_token_;
   }
 
-#line 12 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 14 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 } } // utec::compilers
-#line 1212 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 1245 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
 
-#line 175 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 194 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 
 
 void utec::compilers::Parser::error(const std::string& msg) {
-    std::cerr << msg << " " /*<< yylineno*/ <<'\n';
-    exit(1);
+    std::cout << msg << " in line "<< mylineno <<  '\n';
+    
+    /* exit(1); */
 }
-
-// exp:  exp opsuma term { $$ = $1 + $3; }
-//     | exp oprest term { $$ = $1 - $3; }
-//     | term  { $$ = $1; }
-//     ;
-
-// opsuma: PLUS
-//     ;
-
-// oprest: REST
-//     ;
-
-// term: term opmult factor  { $$ = $1 * $3; }
-//     | factor  { $$ = $1; }
-//     ;
-
-// opmult: MULT
-//     ;
-
-// factor: PAR_BEGIN exp PAR_END { $$ = $2; }
-//     | INTEGER_LITERAL 	{ $$ = $1; }
-//     ;
