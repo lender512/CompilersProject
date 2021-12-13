@@ -3,7 +3,7 @@
 
 tests/CMakeFiles/validation_test.dir/validation_test.cpp.o
  ../compilers/FlexScanner.hpp
- /home/luis/Repos/Compilers/CompilersProject/tests/validation_test.cpp
+ /home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/tests/validation_test.cpp
  compilers/parser.hpp
  googletest-src/googletest/include/gtest/gtest-death-test.h
  googletest-src/googletest/include/gtest/gtest-matchers.h

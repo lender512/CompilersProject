@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-src/src/benchmark_main.cc" "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-build/src/CMakeFiles/benchmark_main.dir/benchmark_main.cc.o"
+  "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-src/src/benchmark_main.cc" "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-build/src/CMakeFiles/benchmark_main.dir/benchmark_main.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -23,7 +23,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-build/src/CMakeFiles/benchmark.dir/DependInfo.cmake"
+  "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-build/src/CMakeFiles/benchmark.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

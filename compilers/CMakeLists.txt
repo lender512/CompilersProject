@@ -3,6 +3,8 @@ FIND_PACKAGE(FLEX REQUIRED)
 # https://cmake.org/cmake/help/latest/module/FindBISON.html
 FIND_PACKAGE(BISON REQUIRED)
 
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+
 IF(BISON_FOUND)
   BISON_TARGET(ParserTarget
 

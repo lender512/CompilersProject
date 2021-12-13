@@ -32,7 +32,7 @@
 
 
 /**
- ** \file /home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp
+ ** \file /home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.hpp
  ** Define the utec::compilers::parser class.
  */
 
@@ -41,16 +41,16 @@
 // Undocumented macros, especially those whose name start with YY_,
 // are private implementation details.  Do not rely on them.
 
-#ifndef YY_YY_HOME_LUIS_REPOS_COMPILERS_COMPILERSPROJECT_BUILD_COMPILERS_PARSER_HPP_INCLUDED
-# define YY_YY_HOME_LUIS_REPOS_COMPILERS_COMPILERSPROJECT_BUILD_COMPILERS_PARSER_HPP_INCLUDED
+#ifndef YY_YY_HOME_LORDMARCUSVANE_LORDMARCUSVANE_HACKPROG_COMPILADORES_COMPILERSPROJECT_BUILD_COMPILERS_PARSER_HPP_INCLUDED
+# define YY_YY_HOME_LORDMARCUSVANE_LORDMARCUSVANE_HACKPROG_COMPILADORES_COMPILERSPROJECT_BUILD_COMPILERS_PARSER_HPP_INCLUDED
 // "%code requires" blocks.
-#line 24 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 24 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
 
     namespace utec::compilers {
         class FlexScanner;
     } // namespace utec::compilers
 
-#line 54 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp"
+#line 54 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.hpp"
 
 
 # include <cstdlib> // std::abort
@@ -183,9 +183,9 @@
 # define YYDEBUG 0
 #endif
 
-#line 18 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 18 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
 namespace utec { namespace compilers {
-#line 189 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp"
+#line 189 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.hpp"
 
 
 
@@ -1456,12 +1456,12 @@ switch (yytype)
   };
 
 
-#line 18 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 18 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
 } } // utec::compilers
-#line 1462 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.hpp"
+#line 1462 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.hpp"
 
 
 
 
 
-#endif // !YY_YY_HOME_LUIS_REPOS_COMPILERS_COMPILERSPROJECT_BUILD_COMPILERS_PARSER_HPP_INCLUDED
+#endif // !YY_YY_HOME_LORDMARCUSVANE_LORDMARCUSVANE_HACKPROG_COMPILADORES_COMPILERSPROJECT_BUILD_COMPILERS_PARSER_HPP_INCLUDED

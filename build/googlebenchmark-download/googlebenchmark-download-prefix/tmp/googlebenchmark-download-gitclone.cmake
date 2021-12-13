@@ -1,15 +1,15 @@
 
-if(NOT "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-gitinfo.txt" IS_NEWER_THAN "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-gitclone-lastrun.txt")
-  message(STATUS "Avoiding repeated git clone, stamp file is up to date: '/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-gitclone-lastrun.txt'")
+if(NOT "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-gitinfo.txt" IS_NEWER_THAN "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-gitclone-lastrun.txt")
+  message(STATUS "Avoiding repeated git clone, stamp file is up to date: '/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-gitclone-lastrun.txt'")
   return()
 endif()
 
 execute_process(
-  COMMAND ${CMAKE_COMMAND} -E remove_directory "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-src"
+  COMMAND ${CMAKE_COMMAND} -E remove_directory "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-src"
   RESULT_VARIABLE error_code
   )
 if(error_code)
-  message(FATAL_ERROR "Failed to remove directory: '/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-src'")
+  message(FATAL_ERROR "Failed to remove directory: '/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-src'")
 endif()
 
 # try the clone 3 times in case there is an odd git clone issue
@@ -18,7 +18,7 @@ set(number_of_tries 0)
 while(error_code AND number_of_tries LESS 3)
   execute_process(
     COMMAND "/usr/bin/git"  clone --no-checkout "https://github.com/google/benchmark.git" "googlebenchmark-src"
-    WORKING_DIRECTORY "/home/luis/Repos/Compilers/CompilersProject/build"
+    WORKING_DIRECTORY "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build"
     RESULT_VARIABLE error_code
     )
   math(EXPR number_of_tries "${number_of_tries} + 1")
@@ -33,7 +33,7 @@ endif()
 
 execute_process(
   COMMAND "/usr/bin/git"  checkout main --
-  WORKING_DIRECTORY "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-src"
+  WORKING_DIRECTORY "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-src"
   RESULT_VARIABLE error_code
   )
 if(error_code)
@@ -44,23 +44,23 @@ set(init_submodules TRUE)
 if(init_submodules)
   execute_process(
     COMMAND "/usr/bin/git"  submodule update --recursive --init 
-    WORKING_DIRECTORY "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-src"
+    WORKING_DIRECTORY "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-src"
     RESULT_VARIABLE error_code
     )
 endif()
 if(error_code)
-  message(FATAL_ERROR "Failed to update submodules in: '/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-src'")
+  message(FATAL_ERROR "Failed to update submodules in: '/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-src'")
 endif()
 
 # Complete success, update the script-last-run stamp file:
 #
 execute_process(
   COMMAND ${CMAKE_COMMAND} -E copy
-    "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-gitinfo.txt"
-    "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-gitclone-lastrun.txt"
+    "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-gitinfo.txt"
+    "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-gitclone-lastrun.txt"
   RESULT_VARIABLE error_code
   )
 if(error_code)
-  message(FATAL_ERROR "Failed to copy script-last-run stamp file: '/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-gitclone-lastrun.txt'")
+  message(FATAL_ERROR "Failed to copy script-last-run stamp file: '/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-download/googlebenchmark-download-prefix/src/googlebenchmark-download-stamp/googlebenchmark-download-gitclone-lastrun.txt'")
 endif()
 

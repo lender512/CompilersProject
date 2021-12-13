@@ -36,7 +36,7 @@
 
 
 // First part of user prologue.
-#line 1 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 1 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
 
 #include <iostream>
 #include <string>
@@ -49,14 +49,14 @@ using namespace std;
 extern int mylineno; 
 
 
-#line 53 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 53 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
 
 
 #include "parser.hpp"
 
 
 // Unqualified %code blocks.
-#line 33 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 33 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
 
     #include "FlexScanner.hpp"
     #define yylex(x) scanner->lex(x)
@@ -72,7 +72,14 @@ extern int mylineno;
     variableType currentVariable = variableType::VARIABLE;
     int arraySize = 0;
 
-#line 76 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+    string currentParamName = "";
+    int currentParamType = 0;
+
+    std::vector<std::tuple<std::string, int>> currentParams;
+
+    std::vector<std::string> currentParamElement;
+
+#line 83 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
 
 
 #ifndef YY_
@@ -143,9 +150,9 @@ extern int mylineno;
 #define YYERROR         goto yyerrorlab
 #define YYRECOVERING()  (!!yyerrstatus_)
 
-#line 18 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 18 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
 namespace utec { namespace compilers {
-#line 149 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 156 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
 
 
   /* Return YYSTR after stripping away unnecessary quotes and
@@ -712,14 +719,15 @@ namespace utec { namespace compilers {
           switch (yyn)
             {
   case 2:
-#line 68 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 75 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
                             {
-    instance->printNiceType();}
-#line 719 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+    instance->printNiceType();
+    }
+#line 727 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
     break;
 
   case 5:
-#line 77 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 85 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
                                                {
         switch(currentVariable) {
                 case variableType::VARIABLE:
@@ -728,49 +736,83 @@ namespace utec { namespace compilers {
                 case variableType::ARRAY:
                         instance->addVariableArray(yystack_[1].value.as < std::string > (), 1, arraySize);
                         break;
+                default:
+                        cout << "Error: variable type not allowed" << endl;
+                        exit(1);
+                        break;
         }
 }
-#line 734 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 746 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
+    break;
+
+  case 7:
+#line 100 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
+                                                                               {int type = 0;
+            instance->addFunction(yystack_[4].value.as < std::string > (), type, currentParams);
+            currentParams.clear();
+        }
+#line 755 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
+    break;
+
+  case 8:
+#line 104 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
+                                                                            {int type = 1;
+            instance->addFunction(yystack_[4].value.as < std::string > (), type, currentParams);
+            currentParams.clear();
+        }
+#line 764 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
     break;
 
   case 11:
-#line 99 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 117 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
                                 {currentVariable = variableType::VARIABLE;}
-#line 740 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 770 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
     break;
 
   case 12:
-#line 100 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 118 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
                                                       {currentVariable = variableType::ARRAY; arraySize = yystack_[2].value.as < int > ();}
-#line 746 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 776 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
     break;
 
   case 13:
-#line 101 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 119 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
                           {yyerrok; yyclearin;}
-#line 752 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 782 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
+    break;
+
+  case 14:
+#line 125 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
+                  {currentParamType = 1;}
+#line 788 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
+    break;
+
+  case 20:
+#line 138 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
+                     {currentParamName = yystack_[0].value.as < std::string > (); currentParams.push_back(std::make_tuple(currentParamName, currentParamType));}
+#line 794 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
     break;
 
   case 32:
-#line 143 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 161 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
                           {yyerrok; yyclearin;}
-#line 758 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 800 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
     break;
 
   case 35:
-#line 148 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 166 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
                              {yyerrok; yyclearin;}
-#line 764 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 806 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
     break;
 
   case 39:
-#line 156 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 174 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
                           {yyerrok; yyclearin;}
-#line 770 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 812 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
     break;
 
 
-#line 774 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 816 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
 
             default:
               break;
@@ -1196,13 +1238,13 @@ namespace utec { namespace compilers {
   const unsigned char
   Parser::yyrline_[] =
   {
-       0,    68,    68,    72,    73,    77,    87,    88,    89,    93,
-      95,    99,   100,   101,   107,   108,   112,   113,   116,   117,
-     120,   123,   126,   127,   130,   131,   134,   135,   136,   137,
-     141,   142,   143,   146,   147,   148,   151,   154,   155,   156,
-     159,   160,   163,   164,   167,   168,   171,   172,   173,   174,
-     175,   176,   179,   180,   183,   184,   187,   188,   191,   192,
-     195,   196,   197,   198,   201,   204,   205,   208,   209
+       0,    75,    75,    80,    81,    85,    99,   100,   104,   111,
+     113,   117,   118,   119,   125,   126,   130,   131,   134,   135,
+     138,   141,   144,   145,   148,   149,   152,   153,   154,   155,
+     159,   160,   161,   164,   165,   166,   169,   172,   173,   174,
+     177,   178,   181,   182,   185,   186,   189,   190,   191,   192,
+     193,   194,   197,   198,   201,   202,   205,   206,   209,   210,
+     213,   214,   215,   216,   219,   222,   223,   226,   227
   };
 
   // Print the state stack on the debug stream.
@@ -1283,11 +1325,11 @@ namespace utec { namespace compilers {
       return yy_undef_token_;
   }
 
-#line 18 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 18 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
 } } // utec::compilers
-#line 1289 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 1331 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/parser.cpp"
 
-#line 213 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 231 "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/compilers/parser.y"
 
 
 void utec::compilers::Parser::error(const std::string& msg) {

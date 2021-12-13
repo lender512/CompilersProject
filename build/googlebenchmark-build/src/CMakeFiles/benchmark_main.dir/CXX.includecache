@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-src/src/benchmark_main.cc
+/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-src/src/benchmark_main.cc
 benchmark/benchmark.h
-/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-src/src/benchmark/benchmark.h
+/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-src/src/benchmark/benchmark.h
 
 googlebenchmark-src/include/benchmark/benchmark.h
 stdint.h

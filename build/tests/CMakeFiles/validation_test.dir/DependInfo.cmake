@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/luis/Repos/Compilers/CompilersProject/tests/validation_test.cpp" "/home/luis/Repos/Compilers/CompilersProject/build/tests/CMakeFiles/validation_test.dir/validation_test.cpp.o"
+  "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/tests/validation_test.cpp" "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/tests/CMakeFiles/validation_test.dir/validation_test.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -20,8 +20,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/luis/Repos/Compilers/CompilersProject/build/compilers/CMakeFiles/compilers.dir/DependInfo.cmake"
-  "/home/luis/Repos/Compilers/CompilersProject/build/googletest-build/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/compilers/CMakeFiles/compilers.dir/DependInfo.cmake"
+  "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googletest-build/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

@@ -44,6 +44,13 @@ extern int mylineno;
 
     variableType currentVariable = variableType::VARIABLE;
     int arraySize = 0;
+
+    string currentParamName = "";
+    int currentParamType = 0;
+
+    std::vector<std::tuple<std::string, int>> currentParams;
+
+    std::vector<std::string> currentParamElement;
 }
 
 
@@ -66,8 +73,9 @@ extern int mylineno;
 %%
 
 programa: lista_declaracion {
-    instance->printNiceType();}
-	;
+    instance->printNiceType();
+    }
+;
 
 lista_declaracion: lista_declaracion declaracion
         | declaracion
@@ -82,11 +90,21 @@ declaracion: INTEGER VARIABLE declaracion_fact {
                 case variableType::ARRAY:
                         instance->addVariableArray($2, 1, arraySize);
                         break;
+                default:
+                        cout << "Error: variable type not allowed" << endl;
+                        exit(1);
+                        break;
         }
 }
         | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta
-        | INTEGER VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON
-        | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON
+        | INTEGER VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {int type = 0;
+            instance->addFunction($2, type, currentParams);
+            currentParams.clear();
+        }
+        | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {int type = 1;
+            instance->addFunction($2, type, currentParams);
+            currentParams.clear();
+        }
 
         ;
         
@@ -104,7 +122,7 @@ var_declaracion_fact: SEMICOLON {currentVariable = variableType::VARIABLE;}
 /* fun_declaracion: tipo VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta 
         ; */
 
-tipo:   INTEGER 
+tipo:   INTEGER   {currentParamType = 1;}
         | VOID 
         ;
         
@@ -117,7 +135,7 @@ lista_params: lista_params COMA param
         | param
         ;
 
-param: tipo VARIABLE
+param: tipo VARIABLE {currentParamName = $2; currentParams.push_back(std::make_tuple(currentParamName, currentParamType));}
         ;
 
 sent_compuesta: BRACES_LEFT declaracion_local lista_sentencias BRACES_RIGHT

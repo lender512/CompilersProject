@@ -5,8 +5,8 @@ project(googlebenchmark-download NONE)
 include(ExternalProject)
 ExternalProject_Add(googlebenchmark-download
                     GIT_REPOSITORY;https://github.com/google/benchmark.git;GIT_TAG;main;UPDATE_DISCONNECTED 1
-                    SOURCE_DIR          "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-src"
-                    BINARY_DIR          "/home/luis/Repos/Compilers/CompilersProject/build/googlebenchmark-build"
+                    SOURCE_DIR          "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-src"
+                    BINARY_DIR          "/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/googlebenchmark-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

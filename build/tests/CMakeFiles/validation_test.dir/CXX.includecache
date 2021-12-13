@@ -12,7 +12,7 @@ FlexLexer.h
 parser.hpp
 ../compilers/parser.hpp
 
-/home/luis/Repos/Compilers/CompilersProject/tests/validation_test.cpp
+/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/tests/validation_test.cpp
 gtest/gtest.h
 -
 strstream
@@ -22,9 +22,9 @@ iostream
 fstream
 -
 FlexScanner.hpp
-/home/luis/Repos/Compilers/CompilersProject/tests/FlexScanner.hpp
+/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/tests/FlexScanner.hpp
 parser.hpp
-/home/luis/Repos/Compilers/CompilersProject/tests/parser.hpp
+/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/tests/parser.hpp
 
 compilers/parser.hpp
 cstdlib

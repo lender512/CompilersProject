@@ -1,69 +1,69 @@
 Performing C++ SOURCE FILE Test HAVE_CXX_FLAG_WSHORTEN_64_TO_32 failed with the following output:
-Change Dir: /home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp
+Change Dir: /home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_dcb1a/fast && /usr/bin/make -f CMakeFiles/cmTC_dcb1a.dir/build.make CMakeFiles/cmTC_dcb1a.dir/build
-make[1]: Entering directory '/home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_dcb1a.dir/src.cxx.o
-/usr/bin/c++    -std=c++11  -Wall  -Wextra  -Wshadow  -Wsuggest-override  -pedantic  -pedantic-errors -DHAVE_CXX_FLAG_WSHORTEN_64_TO_32  -Wshorten-64-to-32   -Wshorten-64-to-32 -o CMakeFiles/cmTC_dcb1a.dir/src.cxx.o -c /home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp/src.cxx
+Run Build Command(s):/usr/bin/make cmTC_67514/fast && /usr/bin/make -f CMakeFiles/cmTC_67514.dir/build.make CMakeFiles/cmTC_67514.dir/build
+make[1]: Entering directory '/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_67514.dir/src.cxx.o
+/usr/bin/c++    -std=c++11  -Wall  -Wextra  -Wshadow  -Wsuggest-override  -pedantic  -pedantic-errors -DHAVE_CXX_FLAG_WSHORTEN_64_TO_32  -Wshorten-64-to-32   -Wshorten-64-to-32 -o CMakeFiles/cmTC_67514.dir/src.cxx.o -c /home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp/src.cxx
 c++: error: unrecognized command line option '-Wshorten-64-to-32'
 c++: error: unrecognized command line option '-Wshorten-64-to-32'
-make[1]: *** [CMakeFiles/cmTC_dcb1a.dir/build.make:66: CMakeFiles/cmTC_dcb1a.dir/src.cxx.o] Error 1
-make[1]: Leaving directory '/home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_dcb1a/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_67514.dir/build.make:66: CMakeFiles/cmTC_67514.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_67514/fast] Error 2
 
 
 Source file was:
 int main() { return 0; }
 Performing C++ SOURCE FILE Test HAVE_CXX_FLAG_WD654 failed with the following output:
-Change Dir: /home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp
+Change Dir: /home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_0bff3/fast && /usr/bin/make -f CMakeFiles/cmTC_0bff3.dir/build.make CMakeFiles/cmTC_0bff3.dir/build
-make[1]: Entering directory '/home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_0bff3.dir/src.cxx.o
-/usr/bin/c++    -std=c++11  -Wall  -Wextra  -Wshadow  -Wsuggest-override  -pedantic  -pedantic-errors  -fstrict-aliasing  -Wno-deprecated-declarations  -Wstrict-aliasing -DHAVE_CXX_FLAG_WD654  -wd654   -wd654 -o CMakeFiles/cmTC_0bff3.dir/src.cxx.o -c /home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp/src.cxx
+Run Build Command(s):/usr/bin/make cmTC_67037/fast && /usr/bin/make -f CMakeFiles/cmTC_67037.dir/build.make CMakeFiles/cmTC_67037.dir/build
+make[1]: Entering directory '/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_67037.dir/src.cxx.o
+/usr/bin/c++    -std=c++11  -Wall  -Wextra  -Wshadow  -Wsuggest-override  -pedantic  -pedantic-errors  -fstrict-aliasing  -Wno-deprecated-declarations  -Wstrict-aliasing -DHAVE_CXX_FLAG_WD654  -wd654   -wd654 -o CMakeFiles/cmTC_67037.dir/src.cxx.o -c /home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp/src.cxx
 c++: error: unrecognized command line option '-wd654'
 c++: error: unrecognized command line option '-wd654'
-make[1]: *** [CMakeFiles/cmTC_0bff3.dir/build.make:66: CMakeFiles/cmTC_0bff3.dir/src.cxx.o] Error 1
-make[1]: Leaving directory '/home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_0bff3/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_67037.dir/build.make:66: CMakeFiles/cmTC_67037.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_67037/fast] Error 2
 
 
 Source file was:
 int main() { return 0; }
 Performing C++ SOURCE FILE Test HAVE_CXX_FLAG_WTHREAD_SAFETY failed with the following output:
-Change Dir: /home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp
+Change Dir: /home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_03a06/fast && /usr/bin/make -f CMakeFiles/cmTC_03a06.dir/build.make CMakeFiles/cmTC_03a06.dir/build
-make[1]: Entering directory '/home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_03a06.dir/src.cxx.o
-/usr/bin/c++    -std=c++11  -Wall  -Wextra  -Wshadow  -Wsuggest-override  -pedantic  -pedantic-errors  -fstrict-aliasing  -Wno-deprecated-declarations  -Wstrict-aliasing -DHAVE_CXX_FLAG_WTHREAD_SAFETY  -Wthread-safety   -Wthread-safety -o CMakeFiles/cmTC_03a06.dir/src.cxx.o -c /home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp/src.cxx
+Run Build Command(s):/usr/bin/make cmTC_f2dbe/fast && /usr/bin/make -f CMakeFiles/cmTC_f2dbe.dir/build.make CMakeFiles/cmTC_f2dbe.dir/build
+make[1]: Entering directory '/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f2dbe.dir/src.cxx.o
+/usr/bin/c++    -std=c++11  -Wall  -Wextra  -Wshadow  -Wsuggest-override  -pedantic  -pedantic-errors  -fstrict-aliasing  -Wno-deprecated-declarations  -Wstrict-aliasing -DHAVE_CXX_FLAG_WTHREAD_SAFETY  -Wthread-safety   -Wthread-safety -o CMakeFiles/cmTC_f2dbe.dir/src.cxx.o -c /home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp/src.cxx
 c++: error: unrecognized command line option '-Wthread-safety'
 c++: error: unrecognized command line option '-Wthread-safety'
-make[1]: *** [CMakeFiles/cmTC_03a06.dir/build.make:66: CMakeFiles/cmTC_03a06.dir/src.cxx.o] Error 1
-make[1]: Leaving directory '/home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_03a06/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_f2dbe.dir/build.make:66: CMakeFiles/cmTC_f2dbe.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_f2dbe/fast] Error 2
 
 
 Source file was:
 int main() { return 0; }
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp
+Change Dir: /home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_7a06f/fast && /usr/bin/make -f CMakeFiles/cmTC_7a06f.dir/build.make CMakeFiles/cmTC_7a06f.dir/build
-make[1]: Entering directory '/home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_7a06f.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_7a06f.dir/src.c.o   -c /home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_7a06f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7a06f.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_7a06f.dir/src.c.o  -o cmTC_7a06f 
-/usr/bin/ld: CMakeFiles/cmTC_7a06f.dir/src.c.o: in function `main':
+Run Build Command(s):/usr/bin/make cmTC_71473/fast && /usr/bin/make -f CMakeFiles/cmTC_71473.dir/build.make CMakeFiles/cmTC_71473.dir/build
+make[1]: Entering directory '/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_71473.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_71473.dir/src.c.o   -c /home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_71473
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71473.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_71473.dir/src.c.o  -o cmTC_71473 
+/usr/bin/ld: CMakeFiles/cmTC_71473.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_7a06f.dir/build.make:87: cmTC_7a06f] Error 1
-make[1]: Leaving directory '/home/luis/Repos/Compilers/CompilersProject/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_7a06f/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_71473.dir/build.make:87: cmTC_71473] Error 1
+make[1]: Leaving directory '/home/lordmarcusvane/lordmarcusvane/Hackprog/compiladores/CompilersProject/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_71473/fast] Error 2
 
 
 Source file was:
