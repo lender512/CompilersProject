@@ -34,20 +34,17 @@ std::string readFromFile(std::string filename) {
 
 INSTANTIATE_TEST_SUITE_P(SimpleTest, ParamTest,
                          testing::Values(
-                           std::make_pair(readFromFile("test1.ce"), 0),
-                           std::make_pair(readFromFile("test2.ce"), 0)
-                          // std::make_pair(
-                          //    "sin_tipo moda(sin_tipo) {\n"
-                          //       "entero b};\n"
-                          //      "entero c;\n"
-                          //      "entero a{;\n"
-                          //      "a = ;\n"
-                          //      "}\n" , 0)
-                          //  std::make_pair(
-                        
-                          //    , 0)
-                           
-                         ));
+                           std::make_pair(readFromFile("test1.ce"), 0)
+                        //    std::make_pair(readFromFile("test2.ce"), 0),
+                        //   std::make_pair(
+                        //      "sin_tipo moda(sin_tipo) {\n"
+                        //        "entero b;} \n"
+                        //        "entero c; \n"
+                        //        "entero a; \n"
+                        //        "a = 2;     \n"
+                        //        "}\n" , 0)
+                        )
+                         );
 
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);

@@ -444,21 +444,11 @@ static const flex_int16_t yy_chk[109] =
 
 int line_number = 1;
 
-void eat_to_newline(void)
-{
-int c;
-    while ((c = getchar()) != '\0' && c != ';')
-        ;
-
-}
-
-
-
-#line 458 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
-#line 22 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 448 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
+#line 12 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
     int mylineno = 1;
-#line 461 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
-#line 462 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
+#line 451 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
+#line 452 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
 
 #define INITIAL 0
 
@@ -590,10 +580,10 @@ YY_DECL
 		}
 
 	{
-#line 30 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 20 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 
 
-#line 597 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
+#line 587 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -652,166 +642,166 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 32 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 22 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 {}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 34 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 24 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::INTEGER; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 35 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 25 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::RETURN; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 36 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 26 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::VOID; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 37 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 27 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::WHILE; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 38 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 28 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::IF; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 39 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 29 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::ELSE; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 40 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::VARIABLE; }
+#line 30 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+{ yylval->emplace<std::string>(yytext) ;return Parser::token::VARIABLE; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 41 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
-{ return Parser::token::NUMBER; }
+#line 31 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+{ yylval->emplace<int>(atoi(yytext)); return Parser::token::NUMBER; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 43 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 33 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::LESS_EQUAL; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 44 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 34 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::GREATER_EQUAL; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 45 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 35 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::EQUAL; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 46 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 36 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::NOT_EQUAL; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 47 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 37 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::GREATER; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 48 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 38 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::LESS; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 50 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 40 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::COMA; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 51 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 41 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::SEMICOLON; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 53 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 43 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::OP_ASSIGN; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 55 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 45 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::OP_ADD; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 56 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 46 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::OP_SUBS; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 58 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 48 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::OP_MULT; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 59 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 49 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::OP_DIVISION; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 61 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 51 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::PARENTHESES_LEFT; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 62 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 52 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::PARENTHESES_RIGHT; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 63 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 53 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::BRACKET_LEFT; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 64 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 54 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::BRACKET_RIGHT; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 65 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 55 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::BRACES_LEFT; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 66 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 56 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { return Parser::token::BRACES_RIGHT; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 68 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 58 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 {}
 	YY_BREAK
 case 30:
 /* rule 30 can match eol */
 YY_RULE_SETUP
-#line 69 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 59 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { mylineno++;	}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 71 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 61 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 { std::cout<<"Error\n"; std::cerr << "SCANNER "; /*yyerror("");*/ exit(1);	}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 73 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 63 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 815 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
+#line 805 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/scanner.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1774,10 +1764,9 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 73 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
+#line 63 "/home/luis/Repos/Compilers/CompilersProject/compilers/scanner.l"
 
 
 int yyFlexLexer::yylex() {
     throw std::runtime_error("Invalid call to yyFlexLexer::yylex()");
 }
-

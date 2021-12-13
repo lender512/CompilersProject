@@ -3,8 +3,12 @@
 #include <string>
 #include <cmath>
 #include <FlexLexer.h>
+#include "symbolTable.hpp"
 
-extern int mylineno;
+using namespace std;
+
+extern int mylineno; 
+
 %}
 
 %require "3.5.1"
@@ -29,11 +33,17 @@ extern int mylineno;
 {
     #include "FlexScanner.hpp"
     #define yylex(x) scanner->lex(x)
+    auto instance = Structure::getInstance();
 
 
+    enum variableType {
+            VARIABLE,
+            ARRAY,
+            FUNCTION
+    };
 
-
-
+    variableType currentVariable = variableType::VARIABLE;
+    int arraySize = 0;
 }
 
 
@@ -55,8 +65,8 @@ extern int mylineno;
 
 %%
 
-programa: lista_declaracion
-
+programa: lista_declaracion {
+    instance->printNiceType();}
 	;
 
 lista_declaracion: lista_declaracion declaracion
@@ -64,7 +74,16 @@ lista_declaracion: lista_declaracion declaracion
         ;
 
 
-declaracion: INTEGER VARIABLE declaracion_fact 
+declaracion: INTEGER VARIABLE declaracion_fact {
+        switch(currentVariable) {
+                case variableType::VARIABLE:
+                        instance->addVariable($2, 1);
+                        break;
+                case variableType::ARRAY:
+                        instance->addVariableArray($2, 1, arraySize);
+                        break;
+        }
+}
         | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta
         | INTEGER VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON
         | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON
@@ -73,12 +92,12 @@ declaracion: INTEGER VARIABLE declaracion_fact
         
 declaracion_fact: var_declaracion_fact
         
-        | PARENTHESES_LEFT params PARENTHESES_RIGHT  sent_compuesta
+        | PARENTHESES_LEFT params PARENTHESES_RIGHT  sent_compuesta 
         /* | error {yyerrok; } */
         ;
 
-var_declaracion_fact: SEMICOLON
-        | BRACKET_LEFT NUMBER BRACKET_RIGHT SEMICOLON
+var_declaracion_fact: SEMICOLON {currentVariable = variableType::VARIABLE;}
+        | BRACKET_LEFT NUMBER BRACKET_RIGHT SEMICOLON {currentVariable = variableType::ARRAY; arraySize = $2;}
         | error SEMICOLON {yyerrok; yyclearin;}
         ;
 

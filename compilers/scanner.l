@@ -27,8 +27,8 @@ LETRA  [a-z]
 "mientras"  { return Parser::token::WHILE; }
 "si"  { return Parser::token::IF; }
 "sino"  { return Parser::token::ELSE; }
-{LETRA}+  { return Parser::token::VARIABLE; }
-{DIGITO}* { return Parser::token::NUMBER; }
+{LETRA}+  { yylval->emplace<std::string>(yytext) ;return Parser::token::VARIABLE; }
+{DIGITO}* { yylval->emplace<int>(atoi(yytext)); return Parser::token::NUMBER; }
 
 "<="  { return Parser::token::LESS_EQUAL; }
 ">="  { return Parser::token::GREATER_EQUAL; }

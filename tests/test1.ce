@@ -1,4 +1,5 @@
-entero moda(sin_tipo) {
-    entero a
-    retorno
-}
+entero a;
+a = 1;
+a = b;
+entero b[10];
+entero b[12];

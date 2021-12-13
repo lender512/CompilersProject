@@ -42,27 +42,37 @@
 #include <string>
 #include <cmath>
 #include <FlexLexer.h>
+#include "symbolTable.hpp"
 
-extern int mylineno;
+using namespace std;
 
-#line 49 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+extern int mylineno; 
+
+
+#line 53 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
 
 
 #include "parser.hpp"
 
 
 // Unqualified %code blocks.
-#line 29 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 33 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 
     #include "FlexScanner.hpp"
     #define yylex(x) scanner->lex(x)
+    auto instance = Structure::getInstance();
 
 
+    enum variableType {
+            VARIABLE,
+            ARRAY,
+            FUNCTION
+    };
 
+    variableType currentVariable = variableType::VARIABLE;
+    int arraySize = 0;
 
-
-
-#line 66 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 76 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
 
 
 #ifndef YY_
@@ -133,9 +143,9 @@ extern int mylineno;
 #define YYERROR         goto yyerrorlab
 #define YYRECOVERING()  (!!yyerrstatus_)
 
-#line 14 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 18 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 namespace utec { namespace compilers {
-#line 139 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 149 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
 
 
   /* Return YYSTR after stripping away unnecessary quotes and
@@ -701,32 +711,66 @@ namespace utec { namespace compilers {
         {
           switch (yyn)
             {
+  case 2:
+#line 68 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+                            {
+    instance->printNiceType();}
+#line 719 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+    break;
+
+  case 5:
+#line 77 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+                                               {
+        switch(currentVariable) {
+                case variableType::VARIABLE:
+                        instance->addVariable(yystack_[1].value.as < std::string > (), 1);
+                        break;
+                case variableType::ARRAY:
+                        instance->addVariableArray(yystack_[1].value.as < std::string > (), 1, arraySize);
+                        break;
+        }
+}
+#line 734 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+    break;
+
+  case 11:
+#line 99 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+                                {currentVariable = variableType::VARIABLE;}
+#line 740 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+    break;
+
+  case 12:
+#line 100 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+                                                      {currentVariable = variableType::ARRAY; arraySize = yystack_[2].value.as < int > ();}
+#line 746 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+    break;
+
   case 13:
-#line 82 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 101 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
                           {yyerrok; yyclearin;}
-#line 708 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 752 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
     break;
 
   case 32:
-#line 124 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 143 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
                           {yyerrok; yyclearin;}
-#line 714 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 758 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
     break;
 
   case 35:
-#line 129 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 148 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
                              {yyerrok; yyclearin;}
-#line 720 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 764 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
     break;
 
   case 39:
-#line 137 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 156 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
                           {yyerrok; yyclearin;}
-#line 726 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 770 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
     break;
 
 
-#line 730 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 774 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
 
             default:
               break;
@@ -1152,13 +1196,13 @@ namespace utec { namespace compilers {
   const unsigned char
   Parser::yyrline_[] =
   {
-       0,    58,    58,    62,    63,    67,    68,    69,    70,    74,
-      76,    80,    81,    82,    88,    89,    93,    94,    97,    98,
-     101,   104,   107,   108,   111,   112,   115,   116,   117,   118,
-     122,   123,   124,   127,   128,   129,   132,   135,   136,   137,
-     140,   141,   144,   145,   148,   149,   152,   153,   154,   155,
-     156,   157,   160,   161,   164,   165,   168,   169,   172,   173,
-     176,   177,   178,   179,   182,   185,   186,   189,   190
+       0,    68,    68,    72,    73,    77,    87,    88,    89,    93,
+      95,    99,   100,   101,   107,   108,   112,   113,   116,   117,
+     120,   123,   126,   127,   130,   131,   134,   135,   136,   137,
+     141,   142,   143,   146,   147,   148,   151,   154,   155,   156,
+     159,   160,   163,   164,   167,   168,   171,   172,   173,   174,
+     175,   176,   179,   180,   183,   184,   187,   188,   191,   192,
+     195,   196,   197,   198,   201,   204,   205,   208,   209
   };
 
   // Print the state stack on the debug stream.
@@ -1239,11 +1283,11 @@ namespace utec { namespace compilers {
       return yy_undef_token_;
   }
 
-#line 14 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 18 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 } } // utec::compilers
-#line 1245 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
+#line 1289 "/home/luis/Repos/Compilers/CompilersProject/build/compilers/parser.cpp"
 
-#line 194 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
+#line 213 "/home/luis/Repos/Compilers/CompilersProject/compilers/parser.y"
 
 
 void utec::compilers::Parser::error(const std::string& msg) {

@@ -7,7 +7,6 @@ entero mod(entero a, entero b){
     a = 9;
     retorno a + b;
 }
-
 /* asdads */
 
 sin_tipo main(sin_tipo) {  
@@ -17,7 +16,6 @@ sin_tipo main(sin_tipo) {
     si ( b > 2 ) {
         b = 2;
         si (b != 3) {
-            
             si (b == 3){
                 b = 10;
             }
