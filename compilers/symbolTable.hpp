@@ -22,7 +22,6 @@ string typeToString(Type type) {
 struct Element {
   Type type;
   int scope;
-  // string name;
   virtual ~Element() {}
 };
 
