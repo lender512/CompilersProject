@@ -152,6 +152,13 @@ public:
       }
     }
   }
+
+  ~Structure() {
+    for (auto it = elements.begin(); it != elements.end(); ++it) {
+      delete it->second;
+    }
+    elements.clear();
+  }
 };
 
 Structure *Structure::instance = nullptr;

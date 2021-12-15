@@ -73,8 +73,9 @@ extern int mylineno;
 %%
 
 programa: lista_declaracion {
-    instance->printNiceType();
-    }
+        instance->printNiceType();
+        delete instance;
+        }
 ;
 
 lista_declaracion: lista_declaracion declaracion
