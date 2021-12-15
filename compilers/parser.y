@@ -61,6 +61,8 @@ extern int mylineno;
     std::vector<std::tuple<std::string, int>> currentParams;
 
     std::vector<std::string> currentParamElement;
+
+    int parserResult = 0;
 }
 
 
@@ -82,10 +84,15 @@ extern int mylineno;
 
 %%
 
-programa: lista_declaracion {
-        // instance->printNiceType();
+programaWrapper: /* empty */ {
+        parserResult = 0;
         instance->resetSingleton();
-        // delete instance;
+        }
+;
+
+programa: programaWrapper lista_declaracion {
+        // instance->printNiceType();
+        /* delete instance; */
         }
 ;
 
@@ -292,6 +299,7 @@ lista_arg: lista_arg COMA expresion {currentParamNumberInUse +=1;}
 
 void utec::compilers::Parser::error(const std::string& msg) {
     std::cout << msg << " in line "<< mylineno <<  '\n';
-    
+    parserResult = 1;
+    *result = parserResult;
     /* exit(1); */
 }

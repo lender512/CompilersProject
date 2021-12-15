@@ -27,7 +27,7 @@ std::string readFromFile(std::string filename) {
 
    std::ifstream file("../tests/" + filename);
    if (!file.is_open()){
-      std::cout << "Error opening file, cd to the project root";
+      std::cout << "Error opening file, cd to folter build and execute \ncmake .. && make && ./tests/validation_test" << std::endl;
       exit(1);
    }
 
@@ -41,7 +41,7 @@ std::string readFromFile(std::string filename) {
 
 INSTANTIATE_TEST_SUITE_P(SimpleTest, ParamTest,
                          testing::Values(
-                          std::make_pair(readFromFile("test2.ce"), 0),
+                          std::make_pair(readFromFile("test0.ce"), 0),
                           std::make_pair(readFromFile("test1.ce"), 0)
                           )
                         //    std::make_pair(readFromFile("test2.ce"), 0),

@@ -1,34 +1,31 @@
-entero ewe(entero b);
-entero awa(entero a);
-sin_tipo owo(entero x, entero y);
+entero mod(entero a, entero b);
+entero mcd(entero a, entero b);
 
-entero awa(entero a){
-    entero nene;
-    retorno;
-}
-
-entero la;
-
-entero ewe(entero b){
-    entero bebe;
-    retorno;
-}
-
-sin_tipo owo(entero lala, entero lele){
-    entero bebe;
-    entero la;
-    si (la == 4) {
-        print();
+entero mod(entero a, entero b){
+    mientras (a >= b){
+        a = a - b;
     }
-    sino {
-        print();
-    }
-    retorno;
+    retorno a;
 }
 
-entero ajj;
 
-entero main(sin_tipo){
-    ajj = 9;
-    print();
+entero mcd(entero a, entero b){
+    entero temporal;
+    mientras (b != 0) {
+        temporal = b;
+        b = mod(a,b);
+        a = temporal;
+    }
+    retorno a;
+}
+
+entero main(sin_tipo) {
+    entero a;
+    entero b;
+    entero c;
+    entero resultado;
+    a = input();
+    b = input();
+    resultado = mcd(a,b);
+    retorno 0;
 }

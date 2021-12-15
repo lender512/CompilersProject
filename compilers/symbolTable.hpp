@@ -28,12 +28,6 @@ struct Element {
 
 struct Variable : public Element {
   Variable(Type type, int scope) {
-    if (type == Type::SIN_TIPO) {
-      cerr << "Error: variable "
-           << "as"
-           << " no tiene tipo" << endl;
-      throw std::runtime_error("failure");
-    }
     this->type = type;
     this->scope = scope;
   }
@@ -43,12 +37,6 @@ struct VariableArray : public Element {
   size_t size;
 
   VariableArray(Type type, size_t size, int scope) {
-    if (type == Type::SIN_TIPO) {
-      cerr << "Error: variable "
-           << "as"
-           << " no tiene tipo" << endl;
-      throw std::runtime_error("failure");
-    }
     this->type = type;
     this->size = size;
     this->scope = scope;
@@ -80,30 +68,33 @@ private:
   Structure() : elements() {}
 
   void checkIfExists(string name, int scopeId) {
-    if (elements.find(name) != elements.end()){
+    if (elements.find(name) != elements.end()) {
       cout << elements[name]->scope << endl;
       cout << scopeId << endl;
     }
-    if (elements.find(name) != elements.end() && elements[name]->scope == 0){
+    if (elements.find(name) != elements.end() && elements[name]->scope == 0) {
       cerr << "Error: variable " << name << " already exists" << endl;
       throw std::runtime_error("failure");
     }
 
-    if (elements.find(name) != elements.end() && elements[name]->scope == scopeId) {
+    if (elements.find(name) != elements.end() &&
+        elements[name]->scope == scopeId) {
       cerr << "Error: variable " << name << " already exists" << endl;
       throw std::runtime_error("failure");
     }
   }
 
-  void checkIfAccesible(string name, string type ,bool condition = false) {
-    if (elements.find(name) == elements.end() && condition == true){
-      cerr << "Error: " << type << " " << name << " has not been declared" << endl;
+  void checkIfAccesible(string name, string type, bool condition = false) {
+    if (elements.find(name) == elements.end() && condition == true) {
+      cerr << "Error: " << type << " " << name << " has not been declared"
+           << endl;
       throw std::runtime_error("failure");
     }
 
     if (elements.find(name) == elements.end()) {
       if (name.find_last_of('_') == string::npos) {
-        cerr << "Error: " << type << " " << name << " has not been declared" << endl;
+        cerr << "Error: " << type << " " << name << " has not been declared"
+             << endl;
         throw std::runtime_error("failure");
       }
 
@@ -139,44 +130,39 @@ public:
   }
 
   // variable y variableArray
-  void searchVariable(string name, int scopeId){
-    // if (elements.find(name) == elements.end()) {
-    //   cout << endl << endl <<endl;
-    //   instance->printNiceType();
-    //   cout << endl << endl <<endl;
-    //   cerr << "Error: variable " << name << " has not been declared" << endl;
-    //   throw std::runtime_error("failure");
-    // }
+  void searchVariable(string name, int scopeId) {
     checkIfAccesible(name, "variable");
-    if (dynamic_cast<Function*> (elements[name])){
-      cerr << "Error: can not assign function " << name  << endl;
+    if (dynamic_cast<Function *>(elements[name])) {
+      cerr << "Error: can not assign function " << name << endl;
       throw std::runtime_error("failure");
     }
   }
 
-  void searchVariableFunction(string name, int type, vector<tuple<string, int>> params, int scopeId){
-    // if (elements.find(name) == elements.end()) {
-    //   cerr << "Error: function " << name << " has not been declared" << endl;
-    //   throw std::runtime_error("failure");
-    // }
-
+  void searchVariableFunction(string name, int type,
+                              vector<tuple<string, int>> params, int scopeId) {
     checkIfAccesible(name, "function");
-    if (dynamic_cast<Variable*> (elements[name]) || dynamic_cast<VariableArray*> (elements[name])){
-      cerr << "Error: can not assign variable or variableArray " << name  << endl;
+    if (dynamic_cast<Variable *>(elements[name]) ||
+        dynamic_cast<VariableArray *>(elements[name])) {
+      cerr << "Error: can not assign variable or variableArray " << name
+           << endl;
       throw std::runtime_error("failure");
     }
 
-    if (dynamic_cast<Function*> (elements[name])->type != type){
-      cerr << "Error: function " << name << " was previously declared as " << typeToString(elements[name]->type) << endl;
+    if (dynamic_cast<Function *>(elements[name])->type != type) {
+      cerr << "Error: function " << name << " was previously declared as "
+           << typeToString(elements[name]->type) << endl;
       throw std::runtime_error("failure");
     }
 
-    if (dynamic_cast<Function*> (elements[name])->paramNumber != params.size()){
-      cerr << "Error: function " << name << " was previously declared with " << dynamic_cast<Function*> (elements[name])->paramNumber << " parameter(s)" << endl;
+    if (dynamic_cast<Function *>(elements[name])->paramNumber !=
+        params.size()) {
+      cerr << "Error: function " << name << " was previously declared with "
+           << dynamic_cast<Function *>(elements[name])->paramNumber
+           << " parameter(s)" << endl;
       throw std::runtime_error("failure");
     }
 
-    vector<Element*> variables;
+    vector<Element *> variables;
     for (std::tuple<string, int> &i : params) {
       string name_ = std::get<0>(i);
       int type_ = std::get<1>(i);
@@ -188,22 +174,24 @@ public:
       variables.push_back(variable);
     }
 
-    dynamic_cast<Function*> (elements[name])->setParams(variables);
+    dynamic_cast<Function *>(elements[name])->setParams(variables);
   }
 
   void searchFunctionUse(string name, int currentParamNumberInUse) {
-    // if (elements.find(name) == elements.end()) {
-    //   cerr << "Error: function " << name << " has not been declared" << endl;
-    //   throw std::runtime_error("failure");
-    // }
     checkIfAccesible(name, "function");
 
-    if (dynamic_cast<Variable*> (elements[name]) || dynamic_cast<VariableArray*> (elements[name])){
-      cerr << "Error: " << name << " Variable-VariableArray is not callable" << endl;
+    if (dynamic_cast<Variable *>(elements[name]) ||
+        dynamic_cast<VariableArray *>(elements[name])) {
+      cerr << "Error: " << name << " Variable-VariableArray is not callable"
+           << endl;
       throw std::runtime_error("failure");
     }
-    if (dynamic_cast<Function*> (elements[name])->params.size() != currentParamNumberInUse){
-      cerr << "Error: function " << name << " was called with " << currentParamNumberInUse << " arguments " << "when it was declared with " << dynamic_cast<Function*> (elements[name])->params.size() << endl;
+    if (dynamic_cast<Function *>(elements[name])->params.size() !=
+        currentParamNumberInUse) {
+      cerr << "Error: function " << name << " was called with "
+           << currentParamNumberInUse << " arguments "
+           << "when it was declared with "
+           << dynamic_cast<Function *>(elements[name])->params.size() << endl;
       throw std::runtime_error("failure");
     }
   }
@@ -231,7 +219,8 @@ public:
       } else if (dynamic_cast<VariableArray *>(it->second)) {
         cout << "ARRAY scope: " << it->second->scope << endl;
       } else if (dynamic_cast<Function *>(it->second)) {
-        cout << "FUNCTION scope: " << it->second->scope << " " <<  typeToString(it->second->type) << " ->"
+        cout << "FUNCTION scope: " << it->second->scope << " "
+             << typeToString(it->second->type) << " ->"
              << "  ";
         cout << "PARAMS: ";
         for (Element *e : dynamic_cast<Function *>(it->second)->params) {
@@ -249,9 +238,7 @@ public:
     elements.clear();
   }
 
-  void resetSingleton(){
-    instance = nullptr;
-  }
+  void resetSingleton() { instance = nullptr; }
 };
 
 Structure *Structure::instance = nullptr;
@@ -260,8 +247,8 @@ Structure *Structure::getInstance() {
   if (instance == nullptr) {
     instance = new Structure();
     instance->addFunction("main", 1, 0, 0);
-    instance->addFunction("print",2, 0,0);
-    instance->addFunction("input",2, 0,0);
+    instance->addFunction("print", 2, 0, 0);
+    instance->addFunction("input", 2, 0, 0);
   }
   return instance;
 }

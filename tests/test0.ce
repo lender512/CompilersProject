@@ -1,0 +1,34 @@
+entero ewe(entero b);
+entero awa(entero a);
+sin_tipo owo(entero x, entero y);
+
+entero awa(entero a){
+    entero nene;
+    retorno;
+}
+
+entero lalalala;
+
+entero ewe(entero b){
+    entero bebe;
+    retorno;
+}
+
+sin_tipo owo(entero lala, entero lele){
+    entero bebe;
+    entero la;
+    si (la == 4) {
+        print();
+    }
+    sino {
+        print();
+    }
+    retorno;
+}
+
+entero ajj;
+
+entero main(sin_tipo){
+    ajj = 9;
+    print();
+}
