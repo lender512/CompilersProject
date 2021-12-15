@@ -83,8 +83,9 @@ extern int mylineno;
 %%
 
 programa: lista_declaracion {
-        instance->printNiceType();
-        delete instance;
+        // instance->printNiceType();
+        instance->resetSingleton();
+        // delete instance;
         }
 ;
 
@@ -122,13 +123,15 @@ declaracion: INTEGER declaracion_integer_function declaracion_fact {
         }
 }
         | void_declaracion_funcion_body sent_compuesta
-        | INTEGER declaracion_integer_function PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {int type = 0;
+        | INTEGER declaracion_integer_function PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {
+                int type = 0;
             instance->addFunction(currentIntegerFunction, 1, currentParamNumber, 0);
             currentParamNumber = 0;
                 currentParams.clear();
         }
-        | VOID declaracion_integer_function PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {int type = 1;
-            instance->addFunction(currentIntegerFunction, 2, currentParamNumber, 0);
+        | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {
+                int type = 1;
+            instance->addFunction($2, 2, currentParamNumber, 0);
             currentParamNumber = 0;
                 currentParams.clear();
         }

@@ -17,7 +17,17 @@ entero ewe(entero b){
 sin_tipo owo(entero lala, entero lele){
     entero bebe;
     entero la;
+    si (la == 4) {
+        print();
+    }
+    sino {
+        print();
+    }
     retorno;
 }
 
 entero ajj;
+
+entero main(sin_tipo){
+    print();
+}

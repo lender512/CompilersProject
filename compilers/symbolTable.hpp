@@ -32,7 +32,7 @@ struct Variable : public Element {
       cerr << "Error: variable "
            << "as"
            << " no tiene tipo" << endl;
-      exit(1);
+      throw std::runtime_error("failure");
     }
     this->type = type;
     this->scope = scope;
@@ -47,7 +47,7 @@ struct VariableArray : public Element {
       cerr << "Error: variable "
            << "as"
            << " no tiene tipo" << endl;
-      exit(1);
+      throw std::runtime_error("failure");
     }
     this->type = type;
     this->size = size;
@@ -86,12 +86,12 @@ private:
     }
     if (elements.find(name) != elements.end() && elements[name]->scope == 0){
       cerr << "Error: variable " << name << " already exists" << endl;
-      exit(1);
+      throw std::runtime_error("failure");
     }
 
     if (elements.find(name) != elements.end() && elements[name]->scope == scopeId) {
       cerr << "Error: variable " << name << " already exists" << endl;
-      exit(1);
+      throw std::runtime_error("failure");
     }
   }
 
@@ -125,32 +125,32 @@ public:
   void searchVariable(string name){
     if (elements.find(name) == elements.end()) {
       cerr << "Error: variable " << name << " has not been declared" << endl;
-      exit(1);
+      throw std::runtime_error("failure");
     }
     if (dynamic_cast<Function*> (elements[name])){
       cerr << "Error: can not assign function " << name  << endl;
-      exit(1);
+      throw std::runtime_error("failure");
     }
   }
 
   void searchVariableFunction(string name, int type, vector<tuple<string, int>> params, int scopeId){
     if (elements.find(name) == elements.end()) {
       cerr << "Error: function " << name << " has not been declared" << endl;
-      exit(1);
+      throw std::runtime_error("failure");
     }
     if (dynamic_cast<Variable*> (elements[name]) || dynamic_cast<VariableArray*> (elements[name])){
       cerr << "Error: can not assign variable or variableArray " << name  << endl;
-      exit(1);
+      throw std::runtime_error("failure");
     }
 
     if (dynamic_cast<Function*> (elements[name])->type != type){
       cerr << "Error: function " << name << " was previously declared as " << typeToString(elements[name]->type) << endl;
-      exit(1);
+      throw std::runtime_error("failure");
     }
 
     if (dynamic_cast<Function*> (elements[name])->paramNumber != params.size()){
       cerr << "Error: function " << name << " was previously declared with " << dynamic_cast<Function*> (elements[name])->paramNumber << " parameter(s)" << endl;
-      exit(1);
+      throw std::runtime_error("failure");
     }
 
     vector<Element*> variables;
@@ -171,15 +171,15 @@ public:
   void searchFunctionUse(string name, int currentParamNumberInUse) {
     if (elements.find(name) == elements.end()) {
       cerr << "Error: function " << name << " has not been declared" << endl;
-      exit(1);
+      throw std::runtime_error("failure");
     }
     if (dynamic_cast<Variable*> (elements[name]) || dynamic_cast<VariableArray*> (elements[name])){
       cerr << "Error: " << name << " Variable-VariableArray is not callable" << endl;
-      exit(1);
+      throw std::runtime_error("failure");
     }
     if (dynamic_cast<Function*> (elements[name])->params.size() != currentParamNumberInUse){
       cerr << "Error: function " << name << " was called with " << currentParamNumberInUse << " arguments " << "when it was declared with " << dynamic_cast<Function*> (elements[name])->params.size() << endl;
-      exit(1);
+      throw std::runtime_error("failure");
     }
   }
 
@@ -222,6 +222,10 @@ public:
       delete it->second;
     }
     elements.clear();
+  }
+
+  void resetSingleton(){
+    instance = nullptr;
   }
 };
 
