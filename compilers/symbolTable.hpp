@@ -158,10 +158,10 @@ public:
       string name_ = std::get<0>(i);
       int type_ = std::get<1>(i);
 
-      checkIfExists(name_, scopeId);
+      checkIfExists(name_ + "_" + std::to_string(scopeId), scopeId);
 
       Element *variable = new Variable((Type)type_, scopeId);
-      elements[name_] = variable;
+      elements[name_ + "_" + std::to_string(scopeId)] = variable;
       variables.push_back(variable);
     }
 
@@ -230,6 +230,9 @@ Structure *Structure::instance = nullptr;
 Structure *Structure::getInstance() {
   if (instance == nullptr) {
     instance = new Structure();
+    instance->addFunction("main", 1, 0, 0);
+    instance->addFunction("print",2, 0,0);
+    instance->addFunction("input",2, 0,0);
   }
   return instance;
 }

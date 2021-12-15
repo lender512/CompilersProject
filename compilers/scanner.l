@@ -12,7 +12,7 @@ int line_number = 1;
     int mylineno = 1;
 %}
 
-%option c++ interactive noyywrap noyylineno nodefault
+%option c++ interactive noyywrap noyylineno nodefault 
 
 DIGITO [0-9]
 LETRA  [a-z]
@@ -58,7 +58,7 @@ LETRA  [a-z]
 [ \t]*		{}
 [\n]		{ mylineno++;	}
 
-.		{ std::cout<<"Error\n"; std::cerr << "SCANNER "; /*yyerror("");*/ exit(1);	}
+.		{ std::cout<<"Error: "; std::cerr << "Un recognized token \"" << yytext  << "\" at line " << mylineno ; /*yyerror("");*/ exit(1);	}
 
 %%
 

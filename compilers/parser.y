@@ -56,6 +56,8 @@ extern int mylineno;
     int scopeId = 0;
     bool takeScopeIntoAccount = false;
 
+    string currentIntegerFunction = "";
+
     std::vector<std::tuple<std::string, int>> currentParams;
 
     std::vector<std::string> currentParamElement;
@@ -91,53 +93,65 @@ lista_declaracion: lista_declaracion declaracion
         ;
 
 
-declaracion: INTEGER VARIABLE declaracion_fact {
+declaracion_integer_function: VARIABLE {
+        currentIntegerFunction = $1;
+}
+
+declaracion: INTEGER declaracion_integer_function declaracion_fact {
         switch(currentVariable) {
                 case variableType::VARIABLE:
                         if (takeScopeIntoAccount) {
-                                instance->addVariable($2, currentParamType, scopeId);
+                                instance->addVariable(currentIntegerFunction + "_" + std::to_string(scopeId), currentParamType, scopeId);
                         } else {
-                                instance->addVariable($2, currentParamType, 0);
+                                instance->addVariable(currentIntegerFunction + "_" + std::to_string(0), currentParamType, 0);
                         }
                         break;
                 case variableType::ARRAY:
                         if (takeScopeIntoAccount) {
-                                instance->addVariableArray($2, currentParamType, arraySize, scopeId);
+                                instance->addVariableArray(currentIntegerFunction + "_" + std::to_string(scopeId), currentParamType, arraySize, scopeId);
                         } else {
-                                instance->addVariableArray($2, currentParamType, arraySize, 0);
+                                instance->addVariableArray(currentIntegerFunction + "_" + std::to_string(0), currentParamType, arraySize, 0);
                         }
                         break;
-                case variableType::FUNCTION:
-                        instance->searchVariableFunction($2, 1, currentParams, scopeId);
-                        currentParamNumber = 0;
-                        takeScopeIntoAccount = false;
-                        currentParams.clear();
-                        break;
+                // case variableType::FUNCTION:
+                //         instance->searchVariableFunction(currentIntegerFunction, 1, currentParams, scopeId);
+                //         currentParamNumber = 0;
+                //         takeScopeIntoAccount = false;
+                //         currentParams.clear();
+                //         break;
         }
 }
-        | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT_FUNCTION sent_compuesta { 
-                instance->searchVariableFunction($2, 2, currentParams, scopeId);
-                currentParamNumber = 0;
-                takeScopeIntoAccount = false;
-                currentParams.clear();
-        }
-        | INTEGER VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {int type = 0;
-            instance->addFunction($2, 1, currentParamNumber, scopeId);
+        | void_declaracion_funcion_body sent_compuesta
+        | INTEGER declaracion_integer_function PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {int type = 0;
+            instance->addFunction(currentIntegerFunction, 1, currentParamNumber, 0);
             currentParamNumber = 0;
                 currentParams.clear();
         }
-        | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {int type = 1;
-            instance->addFunction($2, 2, currentParamNumber, scopeId);
+        | VOID declaracion_integer_function PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {int type = 1;
+            instance->addFunction(currentIntegerFunction, 2, currentParamNumber, 0);
             currentParamNumber = 0;
                 currentParams.clear();
         }
         ;
 
+void_declaracion_funcion_body : VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT_FUNCTION {
+        instance->searchVariableFunction($2, 2, currentParams, scopeId);
+        currentParamNumber = 0;
+        takeScopeIntoAccount = false;
+        currentParams.clear();}
+        ;
+
         
 declaracion_fact: var_declaracion_fact
-        
-        | PARENTHESES_LEFT params PARENTHESES_RIGHT_FUNCTION  sent_compuesta  {currentVariable = variableType::FUNCTION;}
+        | integer_declaracion_funcion_body  sent_compuesta  {currentVariable = variableType::FUNCTION;}
         /* | error {yyerrok; } */
+        ;
+
+integer_declaracion_funcion_body : PARENTHESES_LEFT params PARENTHESES_RIGHT_FUNCTION {
+        instance->searchVariableFunction(currentIntegerFunction, 1, currentParams, scopeId);
+        currentParamNumber = 0;
+        takeScopeIntoAccount = false;
+        currentParams.clear();}
         ;
 
 PARENTHESES_RIGHT_FUNCTION: PARENTHESES_RIGHT {
@@ -178,9 +192,9 @@ declaracion_local: declaracion_local declaracion_local_wrapper
 
 declaracion_local_wrapper: INTEGER VARIABLE var_declaracion_fact {
         if (currentVariable == variableType::ARRAY) {
-                instance->addVariableArray($2, 1, arraySize, scopeId);
+                instance->addVariableArray($2 + "_" + std::to_string(scopeId), 1, arraySize, scopeId);
         } else {
-                instance->addVariable($2, 1, scopeId);
+                instance->addVariable($2 + "_" + std::to_string(scopeId), 1, scopeId);
         }
         }
         ;
@@ -218,8 +232,8 @@ expresion: var OP_ASSIGN expresion {instance->searchVariable(currentParamAssignN
         | expresion_simple
         ;
         
-var: VARIABLE {currentParamAssignName = $1;}
-        | VARIABLE BRACKET_LEFT expresion BRACKET_RIGHT {currentParamAssignName = $1;}
+var: VARIABLE {currentParamAssignName = $1 + "_" + std::to_string(scopeId);}
+        | VARIABLE BRACKET_LEFT expresion BRACKET_RIGHT {currentParamAssignName = $1 + "_" + std::to_string(scopeId);}
         ;
 
 expresion_simple: expresion_aditiva relop expresion_aditiva
