@@ -5,6 +5,8 @@
 #include <fstream>
 #include "FlexScanner.hpp"
 #include "parser.hpp"
+#include <filesystem>
+#include <unistd.h>
 
 using namespace utec::compilers;
 
@@ -22,8 +24,13 @@ TEST_P(ParamTest, basicTest) {
 }
 
 std::string readFromFile(std::string filename) {
-  
-   std::ifstream file("../../tests/" + filename);
+
+   std::ifstream file("./tests/" + filename);
+   if (!file.is_open()){
+      std::cout << "Error opening file, cd to the project root";
+      exit(1);
+   }
+
     std::string temp;
     std::string input;
     while(std::getline(file, temp)) {
@@ -34,7 +41,7 @@ std::string readFromFile(std::string filename) {
 
 INSTANTIATE_TEST_SUITE_P(SimpleTest, ParamTest,
                          testing::Values(
-                          std::make_pair(readFromFile("test1.ce"), 0)
+                          std::make_pair(readFromFile("test1.ce"), 0))
                         //    std::make_pair(readFromFile("test2.ce"), 0),
                         //    std::make_pair(
                         //       "entero j; \n"

@@ -48,6 +48,11 @@ extern int mylineno;
     string currentParamName = "";
     int currentParamType = 0;
 
+    string currentParamAssignName = "";
+
+    int currentParamNumber = 0;
+    int currentParamNumberInUse = 0;
+
     std::vector<std::tuple<std::string, int>> currentParams;
 
     std::vector<std::string> currentParamElement;
@@ -91,19 +96,23 @@ declaracion: INTEGER VARIABLE declaracion_fact {
                 case variableType::ARRAY:
                         instance->addVariableArray($2, 1, arraySize);
                         break;
-                default:
-                        cout << "Error: variable type not allowed" << endl;
-                        exit(1);
+                case variableType::FUNCTION:
+                        instance->searchVariableFunction($2, 1, currentParamNumber);
+                        currentParamNumber = 0;
                         break;
         }
 }
-        | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta
+        | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta { 
+                instance->searchVariableFunction($2, 2, currentParamNumber);
+                currentParamNumber = 0;
+                }
         | INTEGER VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {int type = 0;
-            instance->addFunction($2, type, currentParams);
+            instance->addFunction($2, 1, currentParams);
             currentParams.clear();
+            currentParamNumber = 0;
         }
         | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {int type = 1;
-            instance->addFunction($2, type, currentParams);
+            instance->addFunction($2, 2, currentParams);
             currentParams.clear();
         }
 
@@ -111,7 +120,7 @@ declaracion: INTEGER VARIABLE declaracion_fact {
         
 declaracion_fact: var_declaracion_fact
         
-        | PARENTHESES_LEFT params PARENTHESES_RIGHT  sent_compuesta 
+        | PARENTHESES_LEFT params PARENTHESES_RIGHT  sent_compuesta  {currentVariable = variableType::FUNCTION;}
         /* | error {yyerrok; } */
         ;
 
@@ -132,8 +141,8 @@ params: lista_params
         | VOID 
         ;
 
-lista_params: lista_params COMA param 
-        | param
+lista_params: lista_params COMA param {currentParamNumber+=1;}
+        | param {currentParamNumber+=1;}
         ;
 
 param: tipo VARIABLE {currentParamName = $2; currentParams.push_back(std::make_tuple(currentParamName, currentParamType));}
@@ -142,7 +151,7 @@ param: tipo VARIABLE {currentParamName = $2; currentParams.push_back(std::make_t
 sent_compuesta: BRACES_LEFT declaracion_local lista_sentencias BRACES_RIGHT
         ;
 
-declaracion_local: declaracion_local INTEGER VARIABLE var_declaracion_fact 
+declaracion_local: declaracion_local INTEGER VARIABLE var_declaracion_fact
         | /* empty */
         ;
 
@@ -175,12 +184,12 @@ sentencia_retorno: RETURN SEMICOLON
         | error SEMICOLON {yyerrok; yyclearin;}
         ;
 
-expresion: var OP_ASSIGN expresion
+expresion: var OP_ASSIGN expresion {instance->searchVariable(currentParamAssignName);}
         | expresion_simple
         ;
         
-var: VARIABLE
-        | VARIABLE BRACKET_LEFT expresion BRACKET_RIGHT
+var: VARIABLE {currentParamAssignName = $1;}
+        | VARIABLE BRACKET_LEFT expresion BRACKET_RIGHT {currentParamAssignName = $1;}
         ;
 
 expresion_simple: expresion_aditiva relop expresion_aditiva
@@ -217,15 +226,18 @@ factor: PARENTHESES_LEFT expresion PARENTHESES_RIGHT
         | NUMBER
         ;
 
-call: VARIABLE PARENTHESES_LEFT args PARENTHESES_RIGHT
+call: VARIABLE PARENTHESES_LEFT args PARENTHESES_RIGHT {
+        instance->searchFunctionUse($1, currentParamNumberInUse);
+        currentParamNumberInUse = 0;
+}
         ;
 
 args: lista_arg 
         | /* empty */
         ;
 
-lista_arg: lista_arg COMA expresion
-        | expresion
+lista_arg: lista_arg COMA expresion {currentParamNumberInUse +=1;}
+        | expresion {currentParamNumberInUse += 1;}
         ;
 
 

@@ -3,13 +3,13 @@
 	"name": "C en español",
 	"patterns": [
 		{
-			"include": "#comments-inline"
-		},
-		{
 			"include": "#comments"
 		},
 		{
 			"include": "#types"
+		},
+		{
+			"include": "#numbers"
 		},
 		{
 			"include": "#functions"
@@ -17,9 +17,7 @@
 		{
 			"include": "#keywords"
 		},
-		{
-			"include": "#numbers"
-		},
+
 		{
 			"include": "#operators"
 		}
@@ -50,17 +48,6 @@
 				}
 			]
 		},
-		"comments-inline": {
-			"name": "comment.line.double-slash.ce",
-			"begin": "//",
-			"end": "\\n",
-			"patterns": [
-				{
-					"name": "comments-inline.character.escape.ce",
-					"match": "\\\\."
-				}
-			]
-		},
 		"types": {
 			"patterns": [
 				{
@@ -82,7 +69,7 @@
 				"name": "entity.name.function.ce",
 				"begin": "([a-zA-Z]+)\\(",
 				"end": "\\)",
-				"patterns": [{"include": "#types"}, {"include": "#parameters"}]
+				"patterns": [{"include": "#numbers"}, {"include": "#types"}, {"include": "#parameters"}]
 				
 
 			}]
