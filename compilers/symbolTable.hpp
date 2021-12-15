@@ -21,12 +21,13 @@ string typeToString(Type type) {
 
 struct Element {
   Type type;
+  int scope;
   // string name;
   virtual ~Element() {}
 };
 
 struct Variable : public Element {
-  Variable(Type type) {
+  Variable(Type type, int scope) {
     if (type == Type::SIN_TIPO) {
       cerr << "Error: variable "
            << "as"
@@ -34,13 +35,14 @@ struct Variable : public Element {
       exit(1);
     }
     this->type = type;
+    this->scope = scope;
   }
 };
 
 struct VariableArray : public Element {
   size_t size;
 
-  VariableArray(Type type, size_t size) {
+  VariableArray(Type type, size_t size, int scope) {
     if (type == Type::SIN_TIPO) {
       cerr << "Error: variable "
            << "as"
@@ -49,22 +51,26 @@ struct VariableArray : public Element {
     }
     this->type = type;
     this->size = size;
+    this->scope = scope;
   }
 };
 
 struct Function : public Element {
   vector<Element *> params;
+  int paramNumber;
 
-  Function(Type type, vector<Element *> params) {
+  Function(Type type, int paramNumber, int scopeId) {
     this->type = type;
-    this->params = params;
+    this->paramNumber = paramNumber;
+    this->scope = scopeId;
   }
+
+  void setParams(vector<Element *> params) { this->params = params; }
 };
 
-// singleton Structure class
-// scope = '0-FUNCTIONNAME'
-// scope = '1-' : if, while, variable
-
+// each element will have its scope
+// the default scope (init) is -1
+// scope will increment acording to the order of each function
 class Structure {
 private:
   static Structure *instance;
@@ -73,8 +79,17 @@ private:
 
   Structure() : elements() {}
 
-  void checkIfExists(string name) {
-    if (elements.find(name) != elements.end()) {
+  void checkIfExists(string name, int scopeId) {
+    if (elements.find(name) != elements.end()){
+      cout << elements[name]->scope << endl;
+      cout << scopeId << endl;
+    }
+    if (elements.find(name) != elements.end() && elements[name]->scope == 0){
+      cerr << "Error: variable " << name << " already exists" << endl;
+      exit(1);
+    }
+
+    if (elements.find(name) != elements.end() && elements[name]->scope == scopeId) {
       cerr << "Error: variable " << name << " already exists" << endl;
       exit(1);
     }
@@ -86,36 +101,23 @@ public:
 
   static Structure *getInstance();
 
-  void addVariable(string name, int type) {
-    checkIfExists(name);
-    Variable *variable = new Variable((Type)type);
+  void addVariable(string name, int type, int scopeId) {
+    checkIfExists(name, scopeId);
+    Variable *variable = new Variable((Type)type, scopeId);
 
     elements[name] = variable;
   }
 
-  void addVariableArray(string name, int type, size_t size) {
-    checkIfExists(name);
-    VariableArray *variable = new VariableArray((Type)type, size);
+  void addVariableArray(string name, int type, size_t size, int scopeId) {
+    checkIfExists(name, scopeId);
+    VariableArray *variable = new VariableArray((Type)type, size, scopeId);
     elements[name] = variable;
   }
 
   // varadic tamplate of string name, int type
-  void addFunction(string name, int type, vector<tuple<string, int>> params) {
-    checkIfExists(name);
-    vector<Element *> paramsFinal;
-
-    for (std::tuple<string, int> &i : params) {
-      string name_ = std::get<0>(i);
-      int type_ = std::get<1>(i);
-
-      checkIfExists(name_);
-
-      Variable *variable = new Variable((Type)type_);
-      elements[name_] = variable;
-      paramsFinal.push_back(variable);
-    }
-
-    Element *function = new Function((Type)type, paramsFinal);
+  void addFunction(string name, int type, int paramNumber, int scopeId) {
+    checkIfExists(name, scopeId);
+    Element *function = new Function((Type)type, paramNumber, scopeId);
     elements[name] = function;
   }
 
@@ -131,7 +133,7 @@ public:
     }
   }
 
-  void searchVariableFunction(string name, int type, int paramNumber){
+  void searchVariableFunction(string name, int type, vector<tuple<string, int>> params, int scopeId){
     if (elements.find(name) == elements.end()) {
       cerr << "Error: function " << name << " has not been declared" << endl;
       exit(1);
@@ -146,10 +148,24 @@ public:
       exit(1);
     }
 
-    if (dynamic_cast<Function*> (elements[name])->params.size() != paramNumber){
-      cerr << "Error: function " << name << " was previously declared with " << dynamic_cast<Function*> (elements[name])->params.size() << " parameter(s)" << endl;
+    if (dynamic_cast<Function*> (elements[name])->paramNumber != params.size()){
+      cerr << "Error: function " << name << " was previously declared with " << dynamic_cast<Function*> (elements[name])->paramNumber << " parameter(s)" << endl;
       exit(1);
     }
+
+    vector<Element*> variables;
+    for (std::tuple<string, int> &i : params) {
+      string name_ = std::get<0>(i);
+      int type_ = std::get<1>(i);
+
+      checkIfExists(name_, scopeId);
+
+      Element *variable = new Variable((Type)type_, scopeId);
+      elements[name_] = variable;
+      variables.push_back(variable);
+    }
+
+    dynamic_cast<Function*> (elements[name])->setParams(variables);
   }
 
   void searchFunctionUse(string name, int currentParamNumberInUse) {
@@ -186,11 +202,11 @@ public:
     for (auto it = elements.begin(); it != elements.end(); ++it) {
       cout << it->first << " ";
       if (dynamic_cast<Variable *>(it->second)) {
-        cout << "INTEGER" << endl;
+        cout << "INTEGER scope: " << it->second->scope << endl;
       } else if (dynamic_cast<VariableArray *>(it->second)) {
-        cout << "ARRAY" << endl;
+        cout << "ARRAY scope: " << it->second->scope << endl;
       } else if (dynamic_cast<Function *>(it->second)) {
-        cout << "FUNCTION " << typeToString(it->second->type) << " ->"
+        cout << "FUNCTION scope: " << it->second->scope << " " <<  typeToString(it->second->type) << " ->"
              << "  ";
         cout << "PARAMS: ";
         for (Element *e : dynamic_cast<Function *>(it->second)->params) {

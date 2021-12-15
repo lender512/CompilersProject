@@ -1,18 +1,23 @@
+
+entero ewe(entero b);
 entero awa(entero a);
-entero ewe(entero e, entero d, entero t);
-entero owo(entero j, entero k, entero l, entero m);
+sin_tipo owo(entero x, entero y);
 
 entero awa(entero a){
+    entero nene;
     retorno;
 }
 
-entero ewe(entero f, entero d, entero t){
-    awa();
-    /* a = 3; */
-    /* a = d(10, 11); */
+entero la;
+
+entero ewe(entero b){
+    entero bebe;
     retorno;
 }
 
-entero owo() {
+sin_tipo owo(entero lala, entero lele){
+    entero bebe;
     retorno;
 }
+
+entero ajj;

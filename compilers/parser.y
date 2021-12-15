@@ -53,6 +53,9 @@ extern int mylineno;
     int currentParamNumber = 0;
     int currentParamNumberInUse = 0;
 
+    int scopeId = 0;
+    bool takeScopeIntoAccount = false;
+
     std::vector<std::tuple<std::string, int>> currentParams;
 
     std::vector<std::string> currentParamElement;
@@ -91,38 +94,56 @@ lista_declaracion: lista_declaracion declaracion
 declaracion: INTEGER VARIABLE declaracion_fact {
         switch(currentVariable) {
                 case variableType::VARIABLE:
-                        instance->addVariable($2, 1);
+                        if (takeScopeIntoAccount) {
+                                instance->addVariable($2, currentParamType, scopeId);
+                        } else {
+                                instance->addVariable($2, currentParamType, 0);
+                        }
                         break;
                 case variableType::ARRAY:
-                        instance->addVariableArray($2, 1, arraySize);
+                        if (takeScopeIntoAccount) {
+                                instance->addVariableArray($2, currentParamType, arraySize, scopeId);
+                        } else {
+                                instance->addVariableArray($2, currentParamType, arraySize, 0);
+                        }
                         break;
                 case variableType::FUNCTION:
-                        instance->searchVariableFunction($2, 1, currentParamNumber);
+                        instance->searchVariableFunction($2, 1, currentParams, scopeId);
                         currentParamNumber = 0;
+                        takeScopeIntoAccount = false;
+                        currentParams.clear();
                         break;
         }
 }
-        | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT sent_compuesta { 
-                instance->searchVariableFunction($2, 2, currentParamNumber);
+        | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT_FUNCTION sent_compuesta { 
+                instance->searchVariableFunction($2, 2, currentParams, scopeId);
                 currentParamNumber = 0;
-                }
+                takeScopeIntoAccount = false;
+                currentParams.clear();
+        }
         | INTEGER VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {int type = 0;
-            instance->addFunction($2, 1, currentParams);
-            currentParams.clear();
+            instance->addFunction($2, 1, currentParamNumber, scopeId);
             currentParamNumber = 0;
+                currentParams.clear();
         }
         | VOID VARIABLE PARENTHESES_LEFT params PARENTHESES_RIGHT SEMICOLON {int type = 1;
-            instance->addFunction($2, 2, currentParams);
-            currentParams.clear();
+            instance->addFunction($2, 2, currentParamNumber, scopeId);
+            currentParamNumber = 0;
+                currentParams.clear();
         }
-
         ;
+
         
 declaracion_fact: var_declaracion_fact
         
-        | PARENTHESES_LEFT params PARENTHESES_RIGHT  sent_compuesta  {currentVariable = variableType::FUNCTION;}
+        | PARENTHESES_LEFT params PARENTHESES_RIGHT_FUNCTION  sent_compuesta  {currentVariable = variableType::FUNCTION;}
         /* | error {yyerrok; } */
         ;
+
+PARENTHESES_RIGHT_FUNCTION: PARENTHESES_RIGHT {
+        scopeId++;
+        takeScopeIntoAccount = true;
+        }
 
 var_declaracion_fact: SEMICOLON {currentVariable = variableType::VARIABLE;}
         | BRACKET_LEFT NUMBER BRACKET_RIGHT SEMICOLON {currentVariable = variableType::ARRAY; arraySize = $2;}
@@ -151,8 +172,17 @@ param: tipo VARIABLE {currentParamName = $2; currentParams.push_back(std::make_t
 sent_compuesta: BRACES_LEFT declaracion_local lista_sentencias BRACES_RIGHT
         ;
 
-declaracion_local: declaracion_local INTEGER VARIABLE var_declaracion_fact
+declaracion_local: declaracion_local declaracion_local_wrapper
         | /* empty */
+        ;
+
+declaracion_local_wrapper: INTEGER VARIABLE var_declaracion_fact {
+        if (currentVariable == variableType::ARRAY) {
+                instance->addVariableArray($2, 1, arraySize, scopeId);
+        } else {
+                instance->addVariable($2, 1, scopeId);
+        }
+        }
         ;
 
 lista_sentencias: lista_sentencias sentencia

@@ -25,7 +25,7 @@ TEST_P(ParamTest, basicTest) {
 
 std::string readFromFile(std::string filename) {
 
-   std::ifstream file("./tests/" + filename);
+   std::ifstream file("../tests/" + filename);
    if (!file.is_open()){
       std::cout << "Error opening file, cd to the project root";
       exit(1);
