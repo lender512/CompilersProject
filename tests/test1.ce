@@ -29,5 +29,6 @@ sin_tipo owo(entero lala, entero lele){
 entero ajj;
 
 entero main(sin_tipo){
+    ajj = 9;
     print();
 }

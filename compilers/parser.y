@@ -231,7 +231,7 @@ sentencia_retorno: RETURN SEMICOLON
         | error SEMICOLON {yyerrok; yyclearin;}
         ;
 
-expresion: var OP_ASSIGN expresion {instance->searchVariable(currentParamAssignName);}
+expresion: var OP_ASSIGN expresion {instance->searchVariable(currentParamAssignName, scopeId);}
         | expresion_simple
         ;
         

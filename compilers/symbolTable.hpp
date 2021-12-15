@@ -95,6 +95,23 @@ private:
     }
   }
 
+  void checkIfAccesible(string name, string type ,bool condition = false) {
+    if (elements.find(name) == elements.end() && condition == true){
+      cerr << "Error: " << type << " " << name << " has not been declared" << endl;
+      throw std::runtime_error("failure");
+    }
+
+    if (elements.find(name) == elements.end()) {
+      if (name.find_last_of('_') == string::npos) {
+        cerr << "Error: " << type << " " << name << " has not been declared" << endl;
+        throw std::runtime_error("failure");
+      }
+
+      string baseName = name.substr(0, name.find_last_of('_'));
+      checkIfAccesible(baseName + "_0", type, true);
+    }
+  }
+
 public:
   Structure(Structure const &) = delete;
   void operator=(Structure const &) = delete;
@@ -122,11 +139,15 @@ public:
   }
 
   // variable y variableArray
-  void searchVariable(string name){
-    if (elements.find(name) == elements.end()) {
-      cerr << "Error: variable " << name << " has not been declared" << endl;
-      throw std::runtime_error("failure");
-    }
+  void searchVariable(string name, int scopeId){
+    // if (elements.find(name) == elements.end()) {
+    //   cout << endl << endl <<endl;
+    //   instance->printNiceType();
+    //   cout << endl << endl <<endl;
+    //   cerr << "Error: variable " << name << " has not been declared" << endl;
+    //   throw std::runtime_error("failure");
+    // }
+    checkIfAccesible(name, "variable");
     if (dynamic_cast<Function*> (elements[name])){
       cerr << "Error: can not assign function " << name  << endl;
       throw std::runtime_error("failure");
@@ -134,10 +155,12 @@ public:
   }
 
   void searchVariableFunction(string name, int type, vector<tuple<string, int>> params, int scopeId){
-    if (elements.find(name) == elements.end()) {
-      cerr << "Error: function " << name << " has not been declared" << endl;
-      throw std::runtime_error("failure");
-    }
+    // if (elements.find(name) == elements.end()) {
+    //   cerr << "Error: function " << name << " has not been declared" << endl;
+    //   throw std::runtime_error("failure");
+    // }
+
+    checkIfAccesible(name, "function");
     if (dynamic_cast<Variable*> (elements[name]) || dynamic_cast<VariableArray*> (elements[name])){
       cerr << "Error: can not assign variable or variableArray " << name  << endl;
       throw std::runtime_error("failure");
@@ -169,10 +192,12 @@ public:
   }
 
   void searchFunctionUse(string name, int currentParamNumberInUse) {
-    if (elements.find(name) == elements.end()) {
-      cerr << "Error: function " << name << " has not been declared" << endl;
-      throw std::runtime_error("failure");
-    }
+    // if (elements.find(name) == elements.end()) {
+    //   cerr << "Error: function " << name << " has not been declared" << endl;
+    //   throw std::runtime_error("failure");
+    // }
+    checkIfAccesible(name, "function");
+
     if (dynamic_cast<Variable*> (elements[name]) || dynamic_cast<VariableArray*> (elements[name])){
       cerr << "Error: " << name << " Variable-VariableArray is not callable" << endl;
       throw std::runtime_error("failure");
