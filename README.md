@@ -6,8 +6,12 @@ Building instructions:
 mkdir build
 cd build
 cmake ..
-make -j5
-ctest
+make -j
+./tests/validation_test
+```
 
+Highlighter instructions:
+
+```
 cp -r ce ~/.vscode/extensions
 ```
