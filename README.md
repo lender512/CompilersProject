@@ -13,5 +13,5 @@ make -j
 Highlighter instructions:
 
 ```
-cp -r ce ~/.vscode/extensions
+cp -r ./highlighter/ce ~/.vscode/extensions
 ```
