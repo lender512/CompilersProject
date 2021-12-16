@@ -1,0 +1,12 @@
+entero fibonacci(entero inicio);
+
+entero fibonacci(entero inicio) {
+   si (inicio < 2) {
+      retorno inicio;
+   }
+   retorno fibonacci(inicio-1) + fibonacci(inicio-2);
+}
+
+entero main(sin_tipo){
+   retorno fibonacci(9);
+}

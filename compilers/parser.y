@@ -87,6 +87,7 @@ extern int mylineno;
 programaWrapper: /* empty */ {
         parserResult = 0;
         instance->resetSingleton();
+        mylineno = 0;
         }
 ;
 

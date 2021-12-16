@@ -12,7 +12,7 @@ int line_number = 1;
     int mylineno = 1;
 %}
 
-%option c++ interactive noyywrap noyylineno nodefault 
+%option c++ interactive noyywrap yylineno nodefault 
 
 DIGITO [0-9]
 LETRA  [a-z]
